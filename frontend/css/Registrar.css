@@ -1,0 +1,60 @@
+#Logo {
+    width: 10em;
+    margin: auto;
+}
+
+body{
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+    ),url(../Images/Fondo_Login.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+#wrapper{
+    margin: 0em 25em;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    padding-bottom: 4em;
+
+
+}
+.form-control{
+    margin: 2em;
+    font-size: 20px;
+    display: block;
+    width: 90%;
+    border: none;
+    border-bottom: 1px solid #0000001E;
+    resize: none;
+    font-size: 14px;
+    color: rgba(0,0,0,0.87);
+
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    color: white;
+
+}
+
+.Enviar{
+    background-color: #324ea2;
+    padding: 1em;
+    margin-right: 15em;
+    color: white;
+    float: right;
+
+
+}
+
+.Cancelar{
+
+    background-color: #324ea2;
+    padding: 1em;
+    margin-left: 15em;
+    color: white;
+    float: left;
+}
