@@ -9,8 +9,6 @@ const PORT = process.env.PORT || 3000;
 
 const app = express();
 
-app.use(timeout('100s'))
-
 app.use(bodyParser.json());
 
 app.use(logger('dev'));
