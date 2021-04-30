@@ -1,0 +1,101 @@
+
+#Titulo {
+    float: left;
+    padding-top: 1em;
+    color: white;
+}
+
+#Logo {
+    width: 10em;
+    float: left;
+
+}
+body{
+    background-color: white;
+    background:url(../Images/Fondo_Torneo.jpg) no-repeat center center fixed;
+    background-size: cover;
+
+
+
+
+}
+#Menu {
+    display: block;
+    font: 1.2em Tahoma, Sans-serif;
+    text-align: center;
+    margin-right: 6em;
+    float: right;
+
+
+}
+body{
+
+}
+
+nav ul {
+    display: inline-block;
+    list-style: none;
+}
+
+nav li {
+    position: relative;
+    float: left;
+    list-style-type: none;
+
+}
+
+nav li a {
+    display: block;
+    padding: 1em 3em;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+nav li:hover {
+
+    opacity: 0.8;
+    color: white;
+}
+
+
+
+ table {
+     margin: 10em 13.4em;
+     font-size: 20px;
+
+     border-collapse: collapse;
+     background: linear-gradient(
+             rgba(0, 0, 0, 0.3),
+             rgba(0, 0, 0, 0.3)
+     )   no-repeat center center fixed;
+     border-radius: 20px;
+     color: white;
+ }
+
+
+
+td {
+    border: none;
+    padding: 4em;
+}
+
+th, td {
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 10px;
+    border: none;
+    text-align: center;
+    padding: 1.6em;
+    padding-left: 3em;
+    padding-right: 3em;
+}
+
+td {
+    font-weight: lighter;
+}
+tr:hover{
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.3)
+    )   no-repeat center center fixed;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  ul.action_dropdown {
+    font-family: "titilliumtext22l_ltmedium", sans-serif;
+    font-size: 12px !important;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: absolute;
+  }
+  ul.action_dropdown li {
+    display: block;
+    position: relative;
+    float: left;
+  }
+  ul.action_dropdown li ul {
+    display: none;
+  }
+  ul.action_dropdown li a {
+    display: block;
+    text-decoration: none;
+    color: #000;
+    border: 1px solid #f1f1f1;
+    line-height:19px;
+    height:19px;
+    padding:0px 12px 0px 5px;
+    text-align:left;
+    margin-left: 1px;
+    white-space: nowrap;
+  }
+  .action_dropdown_container {
+    width:55px;
+    height:21px;
+  }
+  .alignmiddle {
+    vertical-align:middle !important;
+  }
+  ul.action_dropdown li a:hover {
+  }
+  ul.action_dropdown li ul li a {
+    background:#329ac4 !important;
+    color:#fff;
+  }
+  ul.action_dropdown li:hover ul {
+    display: block;
+    position: absolute;
+    z-index:999;
+    right: 0px;
+    /*top: -75px;*/
+  }
+  ul.action_dropdown li:hover li {
+    float: none;
+    font-size: 11px;
+    margin-top:-1px;
+  }
+  ul.action_dropdown li > a:focus + ul {
+    display: block;
+    position: absolute;
+    z-index:999;
+    right: 0px;
+    /*top: -75px;*/
+  }
+  ul.action_dropdown li > a:focus + ul li {
+    float: none;
+    font-size: 11px;
+    margin-top:-1px;
+  }
+</style>
+<body>
+<div align="center" class="action_dropdown_container">
+  <ul class="action_dropdown">
+    <li>
+      <a href="">Action</a>
+      <ul>
+        <li>
+          <a href="abc.php">Edit</a>
+        </li>
+        <li>
+          <a href="xyz.php">View</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+</body>
+</html>
