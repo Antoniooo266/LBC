@@ -58,3 +58,10 @@ a{
     color: white;
     float: left;
 }
+
+#Show{
+    margin-bottom: 5em;
+    float: left;
+    margin-left: 2em;
+    padding-bottom: 3em;
+}
