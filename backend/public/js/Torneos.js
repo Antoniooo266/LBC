@@ -1,8 +1,7 @@
-
 $(document).ready(function () {
 
     // FETCHING DATA FROM JSON FILE
-    $.getJSON("torneos.json",
+    $.getJSON("http://localhost:3000/router/torneos",
         function (data) {
             let student = '';
 
@@ -10,7 +9,7 @@ $(document).ready(function () {
             // ITERATING THROUGH OBJECTS
             $.each(data, function (key, value) {
 
-            var Fecha=  value.Fecha;
+                var Fecha=  value.Fecha.;
                 console.log(typeof (Fecha))
 
                 //CONSTRUCTION OF ROWS HAVING
