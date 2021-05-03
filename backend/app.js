@@ -4,7 +4,8 @@ var logger = require('morgan');
 const path = require('path');
 const { connect } = require('http2');
 const PORT = process.env.PORT || 3000;
-const router = require('./router.js');
+const usersrouter = require('./usersrouter.js');
+const torneorouter = require('./torneosrouter.js')
 
 const app = express();
 
@@ -16,7 +17,10 @@ app.use("/public", express.static("public"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('/router', router);
+app.use('/user', usersrouter);
+
+app.use('/torneo', torneorouter);
+
 
 //CCS
 app.get('*', (req, res)=> {
