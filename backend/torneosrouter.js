@@ -12,11 +12,15 @@ router.post('/add', (req, res) =>{
         Premio: req.body.premio
     }
     console.log(torneoObj);
+    
     connection.query('INSERT INTO torneo SET ?', torneoObj, error=>{
         if(error){
             throw error;
+        }else{
+            res.redirect('/public/Mensaje.html');
         }
     })
+    
 });
 
 //Get Torneo
