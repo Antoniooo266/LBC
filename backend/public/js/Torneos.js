@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     // FETCHING DATA FROM JSON FILE
-    $.getJSON("http://localhost:3000/router/torneos",
+    $.getJSON("http://localhost:3000/torneo/get",
         function (data) {
             let student = '';
 
@@ -9,15 +9,12 @@ $(document).ready(function () {
             // ITERATING THROUGH OBJECTS
             $.each(data, function (key, value) {
 
-                var Fecha=  value.Fecha.;
-                console.log(typeof (Fecha))
-
                 //CONSTRUCTION OF ROWS HAVING
                 // DATA FROM JSON OBJECT
                 student += '<tr>';
                 student += '<td>' + value.Nombre + '</td>';
 
-                student += '<td>' + Fecha + '</td>';
+                student += '<td>' + value.Fecha + '</td>';
 
                 student += '<td>' + value.Premio + '</td>';
 
