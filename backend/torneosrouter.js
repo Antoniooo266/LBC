@@ -1,10 +1,9 @@
 const connection = require('./config');
 var express = require('express');
-const encriptar = require('./encriptar');
 var router = express.Router();
 
 //Add Torneo
-router.post('/addtorneo', (req, res) =>{
+router.post('/add', (req, res) =>{
     const torneoObj = {
         Nombre: req.body.name,
         ID_Juego: req.body.joggo,
@@ -21,7 +20,7 @@ router.post('/addtorneo', (req, res) =>{
 });
 
 //Get Torneo
-router.get('/torneos', (req, res) =>{
+router.get('/get', (req, res) =>{
     const sql = 'SELECT * FROM torneo';
     connection.query(sql, (error, results)=> {
         if(error) throw error;

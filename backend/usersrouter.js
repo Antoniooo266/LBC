@@ -4,7 +4,7 @@ const encriptar = require('./encriptar');
 var router = express.Router();
 
 //Add User
-router.post('/adduser', async (req, res) =>{
+router.post('/add', async (req, res) =>{
     const hashedPassword = await encriptar(req.body.password);
     const userObj = {
         Nickname: req.body.name,
@@ -25,7 +25,7 @@ router.post('/adduser', async (req, res) =>{
 });
 
 //Get User
-router.get('/getuser', (req, res) =>{
+router.get('/get', (req, res) =>{
     const sql = 'SELECT * FROM usuario';
     connection.query(sql, (error, results)=> {
         if(error) throw error;
