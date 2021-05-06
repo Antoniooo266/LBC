@@ -2,16 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Inicio de Sesion</title>
+    <title>Title</title>
   <link href="css/Registrar.css" type="text/css" rel="stylesheet">
-  <link rel="icon" type="image/png" href="./Images/Logo.png" sizes="18x18">
 </head>
 <body>
 <br>
 <br>
 <br>
 <div id="wrapper">
-  <form action="/logging" method="POST" name="Login">
+  <form action="#" method="POST" name="Login">
 
     <figure>
       <img src="Images/Logo.png" id="Logo" alt="Logo de LBC">
@@ -20,19 +19,35 @@
       <input class="form-control" type="text" id="firstname"  name="firstname" placeholder="Nombre de usuario">
     </div>
     <div class="form-group">
-      <input class="form-control" type="password" id="lastname" name="contra" placeholder="Contraseña">
+      <input class="form-control" type="password" id="Passwd" name="password" placeholder="Contraseña">
     </div>
+  
 
+    <div id="Show">
+      <input type="checkbox" onclick="showpass()" >Show Password
+    </div>
+    <br>
+    <br>
+  
     <div class="form-group">
       <button class="Enviar" type="submit" onclick="validateForm()">Iniciar Sesion</button>
     </div>
     <div class="form-group2">
-      <button class="Cancelar" type="submit"><a href="index.html">Cancelar</a></button>
+      <button class="Cancelar" type="submit"><a href="Inicio.html">Cancelar</a></button>
     </div>
-
+    
   </form>
 </div>
-<script src="js/Check.js">
+<script>
+
+function showpass() {
+  var x = document.getElementById("Passwd");ººs
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
 
 
 </script>
