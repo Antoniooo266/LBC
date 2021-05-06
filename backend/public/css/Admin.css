@@ -11,9 +11,8 @@
 
 }
 body{
-    background-size: cover;
-    background-color: #312b2b;
-    opacity: 14;
+    background: url(../Images/Admin.jpg);
+    background-size: 1600px;
 
 }
 #Menu {
@@ -44,7 +43,7 @@ nav li {
 nav li a {
     display: block;
     padding: 1em 3em;
-    color: #ffffff;
+    color: #000000;
     text-decoration: none;
 }
 
