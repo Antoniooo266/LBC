@@ -31,8 +31,8 @@ var router = express.Router();
     //----LOGGING USER----
     //Posible refactor en este metodo(separar toda la query a una funcion)
 router.post('/logging', async(req,res)=>{
-    const pass=req.body.contra;
-    const user=req.body.username
+    const pass=req.body.password;
+    const user=req.body.firstname
 
     connection.query('SELECT Contraseña FROM usuario WHERE Nickname = ?', [user], async (error, result) => {
         //se realiza la consulta para saber si el usuario existe
@@ -41,9 +41,9 @@ router.post('/logging', async(req,res)=>{
         } else {
            var resultado = await bcrypt.compare(pass, result[0].Contraseña);    //revisa la contraseña con la de la BD 
           if (resultado==true) {
-            res.redirect('/public/Home.html')   //todo bien entra a HOME
+            res.redirect('../public/Home.html')   //todo bien entra a HOME
           }else{
-            res.redirect('/public/Login.html')  //algun dato mal vuelve al Login
+            res.redirect('../public/Login.html')  //algun dato mal vuelve al Login
           }
         }
       })
