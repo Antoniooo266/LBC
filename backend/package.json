@@ -16,6 +16,7 @@
     "connect-timeout": "^1.9.0",
     "lsof": "^0.1.0",
     "pool": "^0.4.1",
+    "split": "^1.0.1",
     "sql": "^0.78.0"
   },
   "devDependencies": {

@@ -12,11 +12,11 @@ body{
 }
 
 #wrapper{
-    margin: 7em 25em;
+    margin: 4em 25em;
     text-align: center;
     background-color: white;
     border-radius: 10px;
-    padding-bottom: 3em;
+
 
 
 
@@ -176,6 +176,7 @@ nav ul,nav li {
     height: 3em;
     float: right;
     padding-right: 10em;
-
-
+}
+.Enviar{
+    margin-bottom: 2em;
 }

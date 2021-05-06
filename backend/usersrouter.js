@@ -11,7 +11,7 @@ router.post('/add', async (req, res) =>{
     const hashedPassword = await encriptar(req.body.password);
     const userObj = {
         Nickname: req.body.name,
-        Contraseña:hashedPassword,
+        Contraseña: hashedPassword,
         Fecha_Nac: req.body.date,
         Correo: req.body.email,
         País: req.body.paistext
