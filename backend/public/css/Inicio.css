@@ -8,6 +8,7 @@
     width: 10em;
     float: left;
 
+
 }
 body{
     background: linear-gradient(
@@ -28,13 +29,13 @@ body{
 
 
 }
-body{
+#navbar {
 
 }
-
 nav ul {
     display: inline-block;
     list-style: none;
+
 }
 
 nav li {
@@ -49,10 +50,92 @@ nav li a {
     padding: 1em 3em;
     color: #ffffff;
     text-decoration: none;
+    float: right;
+
 }
 
 nav li:hover {
 
     opacity: 0.8;
     color: white;
+}
+
+
+#Eslogan{
+    margin-top: 5em;
+    text-align: center;
+    color: #cecaca;
+    font-size: 48px;
+    opacity: 0.9;
+    text-shadow: 3px 2px #0041ff;
+    font-family: "titilliumtext22l_ltmedium", sans-serif;
+}
+#Eslogan2{
+    text-align: center;
+    color: #cecaca;
+    font-size: 30px;
+    opacity: 0.9;
+    text-shadow: 3px 2px #0039ff;
+    font-family: "titilliumtext22l_ltmedium", sans-serif;
+}
+#Registrar{
+    font-size: 18px;
+    text-decoration: none;
+    color: #c9c9c9;
+    margin-left: 38em;
+    background-color: #0b1b50;
+    padding: 1em 2em;
+    font-family: "titilliumtext22l_ltmedium", sans-serif;
+    border-radius: 10px;
+    margin-top: 12px;
+    border-style:outset;
+    border-color: #0b1b50;
+    border-width: 2px;
+}
+#Registrar:hover{
+
+    background-color: #123587;
+    color: white;
+}
+
+#InicioSesion{
+    color: #ffffff;
+    text-align: center;
+    margin-top: 3em;
+    font-family: "titilliumtext22l_ltmedium", sans-serif;
+
+}
+
+.bg-image {
+    /* Full height */
+
+}
+
+/* Images used */
+#Parte2 {
+    background-color: white;
+    height: 50%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Position text in the middle of the page/image */
+.bg-text {
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+    color: white;
+    font-weight: bold;
+    font-size: 80px;
+    border: 10px solid #f1f1f1;
+    position: fixed; /* Stay fixed */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 300px;
+    padding: 20px;
+    text-align: center;
 }
