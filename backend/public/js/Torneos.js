@@ -13,8 +13,9 @@ $(document).ready(function () {
                 var Fecha = value.Fecha;
                 var res = Fecha.substr(0, 10);
 
+        
                 if(value.Ganador == null){
-                    var Ganador = "No finalizado"
+                    value.Ganador = "No finalizado"
                 }
 
                 //CONSTRUCTION OF ROWS HAVING
@@ -26,7 +27,7 @@ $(document).ready(function () {
 
                 student += '<td>' + value.Premio + '</td>';
 
-                student += '<td>' +Ganador + '</td>';
+                student += '<td>' +value.Ganador + '</td>';
                 student += '</tr>';
             });
 
