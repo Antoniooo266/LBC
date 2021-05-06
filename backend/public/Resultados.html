@@ -51,7 +51,7 @@
 </nav>
 
 <div id="wrapper">
-    <form action="#" method="POST">
+    <form action="/torneo/addresult" method="POST">
 
         <figure>
             <img src="Images/Logo.png" id="Logo" alt="Logo de LBC">
@@ -83,16 +83,14 @@
             <input class="form-control" type="text" name="ResultVisitante" placeholder="Resultado Visitante">
         </div>
         <div class="form-group">
-            <input class="form-control" type="date" name="ResultVisitante" >
+            <input class="form-control" type="date" name="Date" >
         </div>
         <div class="form-group">
-            <button class="Enviar" type="button" onclick="openWin()">Asignar Resultado
-            </button>
+            <button class="Cancelar" type="submit">Asignar Resultado</button>
         </div>
 
     </form>
 </div>
 <script src="js/Resultados.js"></script>
-<script src="js/Mensaje.js"></script>
 </body>
 </html>
