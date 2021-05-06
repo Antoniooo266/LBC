@@ -9,19 +9,24 @@ $(document).ready(function () {
             // ITERATING THROUGH OBJECTS
             $.each(data, function (key, value) {
 
+
+                var Fecha = value.Fecha;
+                var res = Fecha.substr(0, 10);
+
+                if(value.Ganador == null){
+                    var Ganador = "No finalizado"
+                }
+
                 //CONSTRUCTION OF ROWS HAVING
                 // DATA FROM JSON OBJECT
                 student += '<tr>';
                 student += '<td>' + value.Nombre + '</td>';
 
-                student += '<td>' + value.Fecha + '</td>';
+                student += '<td>' + res + '</td>';
 
                 student += '<td>' + value.Premio + '</td>';
 
-                student += '<td>' +value.Ganador + '</td>';
-                if (value.Ganador == null){
-                    value.Ganador = " "
-                }
+                student += '<td>' +Ganador + '</td>';
                 student += '</tr>';
             });
 
