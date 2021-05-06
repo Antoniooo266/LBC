@@ -1,23 +1,14 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt'); 
 const connection = require('./config');
 
+
+//---- ENCRIPTAR LA CONTRASEÑA ----
+
 exports.encriptar = async function encriptar(contraseña) {
-  const salt = 10;
-  const password = await bcrypt.hash(contraseña, salt);
+  const salt = 10; //Genera el tipo de algortimo para la encriptación
+  const password = await bcrypt.hash(contraseña, salt); //Se encarga de encriptar la contraseña
 
   return password;
 }
 
-/*exports.revisar = async function revisar(contraseña, usuario) {
-  
-  const prueba = connection.query('SELECT Contraseña FROM usuario WHERE Nickname = ?', [usuario], async (error, result) => {
-    
-    if (error) {
-      throw error;
-    } else {
-       var resultado = bcrypt.compare(contraseña, result[0].Contraseña);
-      return resultado
-    }
-  })
-  console.log(prueba)
-}*/
+//---FIN DE ENCRIPTAR LA CONTRASEÑA----
