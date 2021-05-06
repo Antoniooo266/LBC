@@ -1,12 +1,15 @@
 const connection = require('./config');
 var express = require('express');
-const encriptar = require('./encriptar');
+const encript = require('./encriptar');
+const bcrypt = require('bcrypt');
+const encriptar = encript.encriptar;
 var router = express.Router();
 
-//Add User
-router.post('/add', async (req, res) =>{
-    const hashedPassword = await encriptar(req.body.password);
-    const userObj = {
+    //----ADD USER----
+    
+    router.post('/add', async (req, res) =>{
+    const hashedPassword = await encriptar(req.body.password);  //se encripta la contraseña mediante el bcrypt
+    const userObj = {       //se almacenan todos los datos introducidos en los input de la pagina Registar
         Nickname: req.body.name,
         Contraseña: hashedPassword,
         Fecha_Nac: req.body.date,
@@ -14,46 +17,56 @@ router.post('/add', async (req, res) =>{
         País: req.body.paistext
     }
     console.log(userObj);
-    connection.query('INSERT INTO usuario SET ?', userObj, error=>{
+    connection.query('INSERT INTO usuario SET ?', userObj, error=>{ //introduce los datos a la BD
         if(error){
             throw error;
         }else{
-            res.redirect('/public/Home.html')
+            res.redirect('/public/Home.html')   //redirige a la pagina principal
         }
         
     })
 });
+    //---- END ADD USER----
 
-//logging user
-
-router.post('/logging',async (req,res)=>{
-    const pass=await encriptar(req.body.password);
+    //----LOGGING USER----
+    //Posible refactor en este metodo(separar toda la query a una funcion)
+router.post('/logging', async(req,res)=>{
+    const pass=req.body.contra;
     const user=req.body.username
-  
-    connection.query('SELECT * FROM usuario WHERE Nickname LIKE ? AND Contraseña LIKE ?',[user,pass],(error,result)=>{
-        if (error) throw error;
-            if (result.length>0) {
-                res.redirect('../public/Home.html')
-            }else{
-                res.redirect('../public/Login.html')
-               
-            }
+
+    connection.query('SELECT Contraseña FROM usuario WHERE Nickname = ?', [user], async (error, result) => {
+        //se realiza la consulta para saber si el usuario existe
+        if (error) {
+          throw error;
+        } else {
+           var resultado = await bcrypt.compare(pass, result[0].Contraseña);    //revisa la contraseña con la de la BD 
+          if (resultado==true) {
+            res.redirect('/public/Home.html')   //todo bien entra a HOME
+          }else{
+            res.redirect('/public/Login.html')  //algun dato mal vuelve al Login
+          }
+        }
+      })
+
+
         
-    })
     
 })
+    //-----END LOGGING USER----
 
-//Get User
+    //----GET USER----
+
 router.get('/get', (req, res) =>{
-    const sql = 'SELECT * FROM usuario';
+    const sql = 'SELECT * FROM usuario';    //muestra todos los datos de la taba usuario
     connection.query(sql, (error, results)=> {
         if(error) throw error;
         if(results.length > 0){
-            res.json(results);
+            res.json(results);  //devuelve los resultados como json
         }else{
             res.send('No hay resultados :(')
         }
     });
 });
 
+    //----END GET USER----
 module.exports = router;

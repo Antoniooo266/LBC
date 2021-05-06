@@ -1,21 +1,23 @@
 const mysql = require('mysql');
 
-//BD
+//----PARAMETROS PARA LA CONEXION A LA BASE DE DATOS----
+
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-<<<<<<< HEAD
-    password: 'Mcedtpm1203',
-=======
-    password: 'root',
->>>>>>> bcaa9aaa71cf8d31d3dae07586d5a78dc6370222
+    password: 'Angel2001Mario2003',
     database: 'lbc'
 });
 
-//Check conexion BD
+//---- END PARAMETROS PARA LA CONEXION A LA BASE DE DATOS----
+
+//----CONEXION A LA BASE DE DATOS----
+
 connection.connect(error =>{
    if (error) throw error;
    console.log('Conexion aceptada :3') 
 })
+
+//----END CONEXION A LA BASE DE DATOS----
 
 module.exports = connection;
