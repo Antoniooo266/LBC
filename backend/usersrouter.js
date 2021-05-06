@@ -1,6 +1,9 @@
 const connection = require('./config');
 var express = require('express');
-const encriptar = require('./encriptar');
+const encript = require('./encriptar');
+const bcrypt = require('bcrypt');
+const encriptar = encript.encriptar;
+const revisar= encript.revisar;
 var router = express.Router();
 
 //Add User
@@ -26,20 +29,26 @@ router.post('/add', async (req, res) =>{
 
 //logging user
 
-router.post('/logging',async (req,res)=>{
-    const pass=await encriptar(req.body.password);
+router.post('/logging', async(req,res)=>{
+    const pass=req.body.contra;
     const user=req.body.username
-  
-    connection.query('SELECT * FROM usuario WHERE Nickname LIKE ? AND Contraseña LIKE ?',[user,pass],(error,result)=>{
-        if (error) throw error;
-            if (result.length>0) {
-                res.redirect('../public/Home.html')
-            }else{
-                res.redirect('../public/Login.html')
-               
-            }
+
+    connection.query('SELECT Contraseña FROM usuario WHERE Nickname = ?', [user], async (error, result) => {
+    
+        if (error) {
+          throw error;
+        } else {
+           var resultado = await bcrypt.compare(pass, result[0].Contraseña);
+          if (resultado==true) {
+            res.redirect('/public/Home.html')
+          }else{
+            res.redirect('/public/Login.html')
+          }
+        }
+      })
+
+
         
-    })
     
 })
 
