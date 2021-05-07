@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 
 
 const usersrouter = require('./usersrouter.js');
-const torneosrouter = require('./torneosrouter.js')
+const torneosrouter = require('./torneosrouter.js');
 
 const app = express();
 
