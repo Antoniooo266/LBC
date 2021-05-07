@@ -3,18 +3,21 @@ var express = require("express");
 var router = express.Router();
 const resultado = require("./resultados");
 
-//Add Torneo
+//---- Añadir Torneo----
+
+//Recoge los datos de la pagina AddTorneo.html y los almacena en un objeto despues de eso se envian a la base de datos donde son almacenados y redirige a Mensaje.html para confirmar de que se ha enviado correctamente 
+
 router.post("/add", (req, res) => {
   const torneoObj = {
-    Nombre: req.body.name,
-    ID_Juego: req.body.joggo,
-    Cantidad: req.body.teams,
-    Fecha: req.body.fecha,
-    Premio: req.body.premio,
+    Nombre: req.body.name,//nombre
+    ID_Juego: req.body.joggo,//id_juego
+    Cantidad: req.body.teams,//cantidad de jugadores
+    Fecha: req.body.fecha,//fecha del torneo
+    Premio: req.body.premio,//premio del torneo
   };
-  console.log(torneoObj);
+  
 
-  connection.query("INSERT INTO torneo SET ?", torneoObj, (error) => {
+  connection.query("INSERT INTO torneo SET ?", torneoObj, (error) => {// es la consulta donde se inserta los datos
     if (error) {
       throw error;
     } else {
@@ -23,7 +26,9 @@ router.post("/add", (req, res) => {
   });
 });
 
-//Get Torneo
+//----Get Torneo----
+//Muestra todos los torneos que hay en la base de datos en un json
+
 router.get("/get", (req, res) => {
   const sql = "SELECT * FROM torneo";
   connection.query(sql, (error, results) => {
@@ -36,55 +41,40 @@ router.get("/get", (req, res) => {
   });
 });
 
-//Add Resultados
-router.post("/addresult", async (req, res) => {
-  var equipoLocal;
-  var equipoVisitante;
+//---- Fin Get Torneo ----
 
-  GetIdEquipo(req.body.Visitante, function (err, data) {
-    if (err) {
-      console.log("ERROR : ", err);
-    } else {
-      equipoVisitante = data;
-    }
-  });
+//---- Borrar Torneo ----
+//Permite borrar un torneo seleccionado mediante el id (falta comprobarlo) y redirige a Mensaje.html para dar feedback
 
-  GetIdEquipo(req.body.Local, function (err, data) {
-    if (err) {
-      console.log("ERROR : ", err);
-    } else {
-      equipoLocal = data;
-    }
-  });
-  setTimeout(()=>{console.log(equipoLocal);
-    const resultObj = {
-      ID_Visitante: equipoVisitante,
-      ID_Local: equipoLocal,
-      Resultado_Local: req.body.ResultLocal,
-      Resultado_Visitante: req.body.ResultVisitante,
-      Fecha: req.body.Date,
-    };
-    console.log(resultObj);
-    connection.query("INSERT INTO partido SET ? ", resultObj, (error) => {
-      if (error) {
-        throw error;
-      } else {
-        res.redirect("/public/Mensaje.html");
-      }
-    });
-}, 3000);
-  
+router.delete('/delete',(req,res)=>{
+connection.query('DELETE * FORM torneo WHERE ID_Torneo =?'[req.body.ID_Torneo],function (err,solution){
+  if (err) throw err;
+
+  res.redirect('../public/Mensaje.html')
+})
 });
 
-function GetIdEquipo(nombre, callback) {
-  connection.query(
-    "SELECT ID_Equipo FROM equipo WHERE Nombre = ?",
-    [nombre],
-    function (err, result) {
-      if (err) callback(err, null);
-      else callback(null, result[0].ID_Equipo);
-    }
-  );
-}
+//---- Fin Borrar Torneo ----
+
+//---- Modificar Torneo ----
+//Recoge los datos introducidos en los campos de texto de la pagina Addtorneo.html y modifica los datos del torneo previamente seleccionado (falta testeo)
+
+router.put('/update',(req,res)=>{
+  const torneoObj = {
+    Nombre: req.body.name,//nombre
+    ID_Juego: req.body.joggo,//id_juego
+    Cantidad: req.body.teams,//cantidad de jugadores
+    Fecha: req.body.fecha,//fecha del torneo
+    Premio: req.body.premio,//premio del torneo
+  };
+  
+  connection.query('UPDATE torneo SET ? WHERE ID_Torneo')[torneoObj,req.body.ID_Torneo],(err,res)=>{
+if (err) throw err;
+
+res.redirect('../public/Mensaje.html')
+  }
+})
+
+//----Fin Modificar Torneo----
 
 module.exports = router;
