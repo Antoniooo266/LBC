@@ -41,9 +41,9 @@ router.get("/get", (req, res) => {
   });
 });
 
-//----Fin Get Torneo----
+//---- Fin Get Torneo ----
 
-//----Borrar Torneo----
+//---- Borrar Torneo ----
 //Permite borrar un torneo seleccionado mediante el id (falta comprobarlo) y redirige a Mensaje.html para dar feedback
 
 router.delete('/delete',(req,res)=>{
@@ -54,9 +54,9 @@ connection.query('DELETE * FORM torneo WHERE ID_Torneo =?'[req.body.ID_Torneo],f
 })
 });
 
-//----Fin Borrar Torneo----
+//---- Fin Borrar Torneo ----
 
-//----Modificar Torneo----
+//---- Modificar Torneo ----
 //Recoge los datos introducidos en los campos de texto de la pagina Addtorneo.html y modifica los datos del torneo previamente seleccionado (falta testeo)
 
 router.put('/update',(req,res)=>{
