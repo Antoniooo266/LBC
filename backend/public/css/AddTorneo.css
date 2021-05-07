@@ -180,3 +180,55 @@ nav ul,nav li {
 .Enviar{
     margin-bottom: 2em;
 }
+
+
+table {
+    margin: 2em 25em;
+    font-size: 20px;
+    border-collapse: collapse;
+    background: linear-gradient(
+            rgba(255, 255, 255, 0.3),
+            rgba(255, 255, 255, 0.3)
+    )   no-repeat center center fixed;
+    border-radius: 20px;
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    max-width:300px;
+}
+
+
+
+td {
+    border: none;
+    padding: 2em;
+}
+
+th, td {
+    font-weight: bold;
+    border: 1px solid black;
+    padding: 10px;
+    border: none;
+    text-align: center;
+    padding: 1.6em;
+    padding-left: 2.3em;
+    padding-right: 2em;
+}
+
+td {
+    font-weight: lighter;
+}
+tr:hover{
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.3)
+    )   no-repeat center center fixed;
+
+}
+
+#Trash{
+    width: 3em;
+}
+#Trash2{
+    width: 2em;
+    margin-right: 0.2em;
+}
