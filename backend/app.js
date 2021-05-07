@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 
 const usersrouter = require('./usersrouter.js');
 const torneosrouter = require('./torneosrouter.js')
-
+const resultadorouter=require('./resutadosrouter.js')
 const app = express();
 
 app.use(bodyParser.json());
@@ -23,7 +23,7 @@ app.use('/user', usersrouter);
 
 app.use('/torneo', torneosrouter);
 
-
+app.use('/resultado',resultadorouter);
 //CCS
 app.get('*', (req, res)=> {
     const index = path.join(__dirname, '/', './css', 'index.html' );

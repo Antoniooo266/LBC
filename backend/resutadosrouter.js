@@ -2,7 +2,8 @@ const connection = require("./config");
 var express = require("express");
 var router = express.Router();
 
-//Add Resultados
+//----Añadir Resultados----
+
 router.post("/addresult", async (req, res) => {
     var equipoLocal;
     var equipoVisitante;
@@ -52,5 +53,5 @@ router.post("/addresult", async (req, res) => {
       }
     );
   }
-
+//---
   module.exports = router;
