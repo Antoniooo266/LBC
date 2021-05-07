@@ -41,7 +41,11 @@ router.post('/logging', async(req,res)=>{
         } else {
            var resultado = await bcrypt.compare(pass, result[0].Contraseña);    //revisa la contraseña con la de la BD 
           if (resultado==true) {
+              if (user=="admin") {
+                  res.redirect('../public/Admin.html')
+              }else{
             res.redirect('../public/Home.html')   //todo bien entra a HOME
+              }
           }else{
             res.redirect('../public/Login.html')  //algun dato mal vuelve al Login
           }
