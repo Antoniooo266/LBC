@@ -1,7 +1,7 @@
 const connection = require("./config");
 var express = require("express");
 var router = express.Router();
-const resultado = require("./resultados");
+
 
 //---- Añadir Torneo----
 
