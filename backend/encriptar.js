@@ -1,5 +1,4 @@
 const bcrypt = require('bcrypt'); 
-const connection = require('./config');
 
 
 //---- ENCRIPTAR LA CONTRASEÑA ----
