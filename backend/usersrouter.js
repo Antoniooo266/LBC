@@ -10,12 +10,12 @@ var router = express.Router();
     router.post('/add', async (req, res) =>{
     const hashedPassword = await encriptar(req.body.password);  //se encripta la contraseña mediante el bcrypt
     const userObj = {       //se almacenan todos los datos introducidos en los input de la pagina Registar
-        Nickname: req.body.name,
+        Nickname: req.body.name,//recoge el nombre del usuario
         Contraseña: hashedPassword,
-        Fecha_Nac: req.body.date,
-        Correo: req.body.email,
-        País: req.body.paistext,
-        Rango: 2
+        Fecha_Nac: req.body.date,//recoge la fecha de nacimiento del usuario
+        Correo: req.body.email,//recoge el email del usuario
+        País: req.body.paistext,//almacena el pais del usuario
+        Rango: 2// se le introduce el rango base en este caso usuario
     }
     console.log(userObj);
     connection.query('INSERT INTO usuario SET ?', userObj, error=>{ //introduce los datos a la BD
@@ -43,6 +43,7 @@ router.post('/logging', async(req,res)=>{
            var resultado = await bcrypt.compare(pass, result[0].Contraseña);    //revisa la contraseña con la de la BD 
           if (resultado==true) {
               if (user=="admin") {
+                  //si el usuario es admin se le redirige a la pagina de admin
                   res.redirect('../public/Admin.html')
               }else{
             res.redirect('../public/Home.html')   //todo bien entra a HOME
@@ -78,7 +79,7 @@ router.get('/get', (req, res) =>{
 
     //----PRIVILEGIOS USUARIO----
     router.put('/putpriv',(req,res)=>{
-        
+
     })
 
 
