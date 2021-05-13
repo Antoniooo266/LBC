@@ -56,7 +56,7 @@ connection.query('DELETE FROM torneo WHERE ID_Torneo=?',[req.body.Eliminar],func
   res.redirect('/public/Mensaje.html')
 })
 });
-
+});
 //---- Fin Borrar Torneo ----
 
 //---- Modificar Torneo ----
