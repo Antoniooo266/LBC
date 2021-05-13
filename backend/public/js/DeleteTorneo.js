@@ -17,11 +17,12 @@ $(document).ready(function () {
 
                 //CONSTRUCTION OF ROWS HAVING
                 // DATA FROM JSON OBJECT
+                
                 student += '<tr>';
                 student += '<td id='+id+' name="ID_Torneo">' + value.ID_Torneo + '</td>';
                 student += '<td>' + value.Nombre + '</td>';
                 student += '<td>' + res + '</td>';
-                student += '<td><button style="background-color: #515468;" id="'+id+'"  formaction="/resultado/delete"><img src="/public/Images/Trash.png" id="Trash2"></button></td>'
+                student += '<td><form action="/torneo/delete" method="delete"><button type="submit" style="background-color: #515468;" value="'+value.ID_Torneo+'" ><img src="/public/Images/Trash.png" id="Trash2"></button></form></td>';
                 student += '</tr>';
                 id+=1;
             });
