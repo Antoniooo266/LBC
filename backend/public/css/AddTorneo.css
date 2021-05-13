@@ -230,3 +230,20 @@ tr:hover{
     display: block;
     margin-right: 0.2em;
 }
+
+#si{
+    background-color: #06570a;
+    padding: 1em;
+    margin-right: 15em;
+    color: white;
+    float: right;
+}
+
+#no{
+
+    background-color: #aa051b;
+    padding: 1em;
+    margin-left: 15em;
+    color: white;
+    float: left;
+}

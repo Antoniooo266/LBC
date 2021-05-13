@@ -64,7 +64,7 @@ router.post('/logging', async(req,res)=>{
     //----GET USER----
 
 router.get('/get', (req, res) =>{
-    const sql = 'SELECT * FROM usuario';    //muestra todos los datos de la taba usuario
+    const sql = 'SELECT * FROM usuario INNER JOIN usuario_equipo ON usuario.ID_Usuario = usuario_equipo.ID_Usuario';    //muestra todos los datos de la taba usuario
     connection.query(sql, (error, results)=> {
         if(error) throw error;
         if(results.length > 0){

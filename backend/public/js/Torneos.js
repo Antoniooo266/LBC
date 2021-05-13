@@ -11,7 +11,7 @@ $(document).ready(function () {
 
 
                 var Fecha = value.Fecha;
-                var res = Fecha.substr(0, 10);
+                var Fecha = Fecha.substr(0, 10);
 
         
                 if(value.Ganador == null){
@@ -23,7 +23,7 @@ $(document).ready(function () {
                 student += '<tr>';
                 student += '<td>' + value.Nombre + '</td>';
 
-                student += '<td>' + res + '</td>';
+                student += '<td>' + Fecha + '</td>';
 
                 student += '<td>' + value.Premio + '</td>';
 
