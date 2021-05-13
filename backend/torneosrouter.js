@@ -47,36 +47,26 @@ router.get("/get", (req, res) => {
 //Permite borrar un torneo seleccionado mediante el id (falta comprobarlo) y redirige a Mensaje.html para dar feedback
 
 router.post('/delete',(req,res)=>{
-  console.log('hasta funciona')
+  
 connection.query('DELETE FROM torneo WHERE ID_Torneo = ?',[req.body.Eliminar],function (err,solution){
-  console.log(req.body.Eliminar)
-connection.query('DELETE FROM torneo WHERE ID_Torneo=?',[req.body.Eliminar],function (err,solution){
-  if (err) throw err;
-  console.log('hasta funciona*2')
+  if(err) throw err;
   res.redirect('/public/Mensaje.html')
 })
 });
-});
+
 //---- Fin Borrar Torneo ----
 
 //---- Modificar Torneo ----
 //Recoge los datos introducidos en los campos de texto de la pagina Addtorneo.html y modifica los datos del torneo previamente seleccionado (falta testeo)
 
 router.put('/update',(req,res)=>{
-  const torneoObj = {
-    Nombre: req.body.name,//nombre
-    ID_Juego: req.body.joggo,//id_juego
-    Cantidad: req.body.teams,//cantidad de jugadores
-    Fecha: req.body.fecha,//fecha del torneo
-    Premio: req.body.premio,//premio del torneo
-  };
-  
-  connection.query('UPDATE torneo SET ? WHERE ID_Torneo')[torneoObj,req.body.ID_Torneo],(err,res)=>{
-if (err) throw err;
+  connection.query('DELETE FROM torneo WHERE ID_Torneo = ?',[req.body.Eliminar],function (err,solution){
+    if(err) throw err;
+    res.redirect('/public/AddTorneo.html');
 
-res.redirect('../public/Mensaje.html')
-  }
-})
+  })
+  });
+
 
 //----Fin Modificar Torneo----
 
