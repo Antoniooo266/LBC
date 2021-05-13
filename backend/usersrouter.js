@@ -14,7 +14,8 @@ var router = express.Router();
         Contraseña: hashedPassword,
         Fecha_Nac: req.body.date,
         Correo: req.body.email,
-        País: req.body.paistext
+        País: req.body.paistext,
+        Rango: 2
     }
     console.log(userObj);
     connection.query('INSERT INTO usuario SET ?', userObj, error=>{ //introduce los datos a la BD

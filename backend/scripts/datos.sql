@@ -33,8 +33,20 @@ VALUES (3, 'Equipo', 'Usuario de un equipo que le permite inscribirte');
 INSERT INTO rango (ID_Rango, Nombre, Descripcion)
 VALUES (4, 'Jugador', 'Usuario que pertenece a un equipo y juega rondas');
 
+INSERT INTO ronda (ID_Ronda, Nombre)
+VALUES (1, 'FINAL');
 
+INSERT INTO ronda (ID_Ronda, Nombre)
+VALUES (2, 'SEMIFINAL');
 
+INSERT INTO ronda (ID_Ronda, Nombre)
+VALUES (3, 'CUARTOS');
 
+INSERT INTO amonestacion (ID_Amonestacion, Gravedad, Duracion)
+VALUES (1, 'Leve', '0000-00-00 2:00:00');
 
+INSERT INTO amonestacion (ID_Amonestacion, Gravedad, Duracion)
+VALUES (2, 'Grave', '0000-00-00 10:00:00');
 
+INSERT INTO amonestacion (ID_Amonestacion, Gravedad, Duracion)
+VALUES (3, 'Muy Grave', '0000-00-00 20:00:00');
