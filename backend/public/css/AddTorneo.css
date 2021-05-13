@@ -184,8 +184,9 @@ nav ul,nav li {
 
 
 table {
-    margin: 2em 25em;
+    margin: 3em 17.5em;
     font-size: 20px;
+
     border-collapse: collapse;
     background: linear-gradient(
             rgba(255, 255, 255, 0.3),
@@ -194,42 +195,38 @@ table {
     border-radius: 20px;
     color: white;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    max-width:300px;
-}
-
-
-
-td {
-    border: none;
-    padding: 2em;
+    vertical-align: middle;
 }
 
 th, td {
-    font-weight: bold;
-    border: 1px solid black;
-    padding: 10px;
-    border: none;
-    text-align: center;
-    padding: 1.6em;
-    padding-left: 2.3em;
-    padding-right: 2em;
+   font-weight: bold;
+   border: 1px solid black;
+   border: none;
+   text-align: center;
+   padding: 2em;
+   padding-left: 2em;
+   padding-right: 2em;
 }
 
 td {
-    font-weight: lighter;
+   font-weight: lighter;
 }
 tr:hover{
-    background: linear-gradient(
-            rgba(0, 0, 0, 0.3),
-            rgba(0, 0, 0, 0.3)
-    )   no-repeat center center fixed;
-
+   background: linear-gradient(
+           rgba(0, 0, 0, 0.3),
+           rgba(0, 0, 0, 0.3)
+   )   no-repeat center center fixed;
 }
 
 #Trash{
-    width: 3em;
+    width: 2em;
+    float: right;
+    display: block;
+    margin-right: 0.2em;
 }
 #Trash2{
     width: 2em;
+    float: left;
+    display: block;
     margin-right: 0.2em;
 }
