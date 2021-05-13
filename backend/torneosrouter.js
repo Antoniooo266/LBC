@@ -46,8 +46,8 @@ router.get("/get", (req, res) => {
 //---- Borrar Torneo ----
 //Permite borrar un torneo seleccionado mediante el id (falta comprobarlo) y redirige a Mensaje.html para dar feedback
 
-router.delete('/delete:id',(req,res)=>{
-connection.query('DELETE * FORM torneo WHERE ID_Torneo =?'[req.body.ID_Torneo],function (err,solution){
+router.delete('/delete',(req,res)=>{
+connection.query('DELETE * FORM torneo WHERE ID_Torneo =?'[req.body.Eliminar],function (err,solution){
   if (err) throw err;
 
   res.redirect('../public/Mensaje.html')
