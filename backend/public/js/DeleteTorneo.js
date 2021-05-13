@@ -22,7 +22,7 @@ $(document).ready(function () {
                 student += '<td id='+id+' name="ID_Torneo">' + value.ID_Torneo + '</td>';
                 student += '<td>' + value.Nombre + '</td>';
                 student += '<td>' + res + '</td>';
-                student += '<td><form action="/torneo/delete" method="delete"><button type="submit" style="background-color: #515468;" value="'+value.ID_Torneo+'" ><img src="/public/Images/Trash.png" id="Trash2"></button></form></td>';
+                student += '<td><form action="/torneo/delete" method="post"><button type="submit" style="background-color: #515468;" name="Eliminar" value="'+value.ID_Torneo+'" ><img src="/public/Images/Trash.png" id="Trash2"></button></form></td>';
                 student += '</tr>';
                 id+=1;
             });
