@@ -49,9 +49,11 @@ router.get("/get", (req, res) => {
 router.post('/delete',(req,res)=>{
   console.log('hasta funciona')
 connection.query('DELETE FROM torneo WHERE ID_Torneo = ?',[req.body.Eliminar],function (err,solution){
+  console.log(req.body.Eliminar)
+connection.query('DELETE FROM torneo WHERE ID_Torneo=?',[req.body.Eliminar],function (err,solution){
   if (err) throw err;
   console.log('hasta funciona*2')
-  res.redirect('../public/Mensaje.html')
+  res.redirect('/public/Mensaje.html')
 })
 });
 

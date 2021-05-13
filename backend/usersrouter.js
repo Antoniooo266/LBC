@@ -75,4 +75,12 @@ router.get('/get', (req, res) =>{
 });
 
     //----END GET USER----
+
+    //----PRIVILEGIOS USUARIO----
+    router.put('/putpriv',(req,res)=>{
+        
+    })
+
+
+    //----END PRIVILEGIOS USUARIO----
 module.exports = router;
