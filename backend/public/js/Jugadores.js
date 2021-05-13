@@ -24,7 +24,7 @@ $(document).ready(function () {
 
                 player += '<td>' + Fecha + '</td>';
 
-                player += '<td>' +value.Rango + '</td>';
+                player += '<td><select name="Rangos"><option value="1">Administrador</option><option value="2">Usuario</option><option value="3">Capitan</option><option value="4">Jugador</option> </select></td>';
                 
                 player += '</tr>';
             });
