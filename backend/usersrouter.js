@@ -83,11 +83,16 @@ var router = express.Router();
           Rango: req.body.Rango,
           Nickname: req.body.Name
         };
+        console.log(RangoObj);
         connection.query("UPDATE usuario SET Rango = ? WHERE Nickname = ?", [RangoObj.Rango, RangoObj.Nickname], (error) => {
             if (error) {
               throw error;
             }else{
-                res.redirect("/public/Mensaje.html");
+                if(RangoObj.Nickname == ''){
+                    res.redirect("/public/Jugadores.html")
+                }else{
+                    res.redirect("/public/Mensaje.html");
+                }
             }
           });
     });
