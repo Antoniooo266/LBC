@@ -25,7 +25,7 @@ router.post("/addresult", async (req, res) => {
       }
     });
 
-    GetIdEquipo(req.body.Ganador, function (err, data) {
+    GetIdEquipo(req.body.Winner, function (err, data) {
       if (err) {
         console.log("ERROR : ", err);
       } else {
@@ -42,15 +42,21 @@ router.post("/addresult", async (req, res) => {
         Fecha: req.body.Date,
       };
       const GanadorObj = {
-        Nombre: req.body.NombreTorneo,
-        Ganador: Ganador
+        Ganador: Ganador,
+        Nombre: req.body.NombreTorneo
       }
       console.log(resultObj);
       console.log(GanadorObj);
-      connection.query("INSERT INTO partido SET ? ", resultObj, "UPDATE torneo SET Ganador = ? WHERE Nombre = ?", GanadorObj, (error) => {
+
+      connection.query("INSERT INTO partido SET ? ", resultObj, (error) => {
         if (error) {
           throw error;
         } else {
+          connection.query("UPDATE torneo SET Ganador = ? WHERE Nombre = ?", [GanadorObj.Ganador, GanadorObj.Nombre], (error) => {
+            if (error) {
+              throw error;
+            }
+          });
           res.redirect("/public/Mensaje.html");
         }
       });
