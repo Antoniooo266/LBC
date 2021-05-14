@@ -23,6 +23,14 @@ router.post("/addresult", async (req, res) => {
         equipoLocal = data;
       }
     });
+
+    GetIdEquipo(req.body.Winner, function (err, data) {
+      if (err) {
+        console.log("ERROR : ", err);
+      } else {
+        Ganador = data;
+      }
+    });
     setTimeout(()=>{console.log(equipoLocal);
       const resultObj = {
         ID_Visitante: equipoVisitante,
@@ -31,11 +39,21 @@ router.post("/addresult", async (req, res) => {
         Resultado_Visitante: req.body.ResultVisitante,
         Fecha: req.body.Date,
       };
+      const GanadorObj = {
+        Ganador: Ganador,
+        Nombre: req.body.NombreTorneo
+      }
       console.log(resultObj);
+      console.log(GanadorObj);
       connection.query("INSERT INTO partido SET ? ", resultObj, (error) => {
         if (error) {
           throw error;
         } else {
+          connection.query("UPDATE torneo SET Ganador = ? WHERE Nombre = ?", [GanadorObj.Ganador, GanadorObj.Nombre], (error) => {
+            if (error) {
+              throw error;
+            }
+          });
           res.redirect("/public/Mensaje.html");
         }
       });
