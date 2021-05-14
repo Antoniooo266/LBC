@@ -64,13 +64,14 @@ table {
     border-radius: 20px;
     color: white;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    float: inline-start;
 }
 
 
 
 td {
    border: none;
-   padding: 4em;
+   padding: 2em;
 }
 
 th, td {
@@ -79,9 +80,8 @@ th, td {
    padding: 10px;
    border: none;
    text-align: center;
-   padding: 1.6em;
-   padding-left: 3em;
-   padding-right: 3em;
+   padding: 1em;
+
 }
 
 td {
@@ -92,4 +92,42 @@ tr:hover{
            rgba(0, 0, 0, 0.3),
            rgba(0, 0, 0, 0.3)
    )   no-repeat center center fixed;
+}
+
+
+#wrapper{
+    margin: 0em 15em 4em 70em;
+    text-align: center;
+    background-color: white;
+    border-radius: 10px;
+    float: right;
+    position: fixed;
+}
+.form-control{
+    margin: 2em;
+    font-size: 20px;
+    display: block;
+    width: 80%;
+    border: none;
+    border-bottom: 1px solid #0000001E;
+    resize: none;
+    font-size: 14px;
+    padding: 0.2em;
+    color: rgba(0,0,0,0.87);
+
+
+}
+a{
+    text-decoration: none;
+    color: black;
+    color: white;
+
+}
+
+.Enviar{
+    background-color: #324ea2;
+    padding: 1em;
+    margin-bottom: 1em;
+
+
 }
