@@ -29,9 +29,7 @@ body{
 
 
 }
-body{
 
-}
 
 nav ul {
     display: inline-block;
@@ -57,4 +55,15 @@ nav li:hover {
     opacity: 0.8;
     color: white;
 }
+
+#Perfil{
+    width: 2em;
+    padding-bottom: 0.2em;
+}
+nav li ul{
+    display:none;
+
+}
+
+nav li:hover ul{display:contents;}
 
