@@ -7,6 +7,7 @@ var router = express.Router();
 router.post("/addresult", async (req, res) => {
     var equipoLocal;
     var equipoVisitante;
+    var Ganador;
   
     GetIdEquipo(req.body.Visitante, function (err, data) {
       if (err) {
@@ -23,6 +24,15 @@ router.post("/addresult", async (req, res) => {
         equipoLocal = data;
       }
     });
+
+    GetIdEquipo(req.body.Ganador, function (err, data) {
+      if (err) {
+        console.log("ERROR : ", err);
+      } else {
+        Ganador = data;
+      }
+    });
+
     setTimeout(()=>{console.log(equipoLocal);
       const resultObj = {
         ID_Visitante: equipoVisitante,
@@ -31,8 +41,13 @@ router.post("/addresult", async (req, res) => {
         Resultado_Visitante: req.body.ResultVisitante,
         Fecha: req.body.Date,
       };
+      const GanadorObj = {
+        Nombre: req.body.NombreTorneo,
+        Ganador: Ganador
+      }
       console.log(resultObj);
-      connection.query("INSERT INTO partido SET ? ", resultObj, (error) => {
+      console.log(GanadorObj);
+      connection.query("INSERT INTO partido SET ? ", resultObj, "UPDATE torneo SET Ganador = ? WHERE Nombre = ?", GanadorObj, (error) => {
         if (error) {
           throw error;
         } else {
@@ -40,8 +55,7 @@ router.post("/addresult", async (req, res) => {
         }
       });
   }, 3000);
-    
-  });
+});
   
   function GetIdEquipo(nombre, callback) {
     connection.query(
@@ -52,6 +66,7 @@ router.post("/addresult", async (req, res) => {
         else callback(null, result[0].ID_Equipo);
       }
     );
-  }
+}
+
 //---- Fin Añadir Resultado----
   module.exports = router;

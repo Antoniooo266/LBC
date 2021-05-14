@@ -23,7 +23,7 @@ $(document).ready(function () {
 
                 player += '<td>' + Fecha + '</td>';
 
-                player += '<td><select name="Rangos" onchange="Actualizar(value.ID_Usuario)"><option value="1">Administrador</option><option value="2">Usuario</option><option value="3">Capitan</option><option value="4">Jugador</option> </select></td><script src="js/ActualizarRango.js"></script>';
+                player += '<td colspan="2"><select name="Rangos" onchange="Actualizar(value.ID_Usuario)"><option value="1">Administrador</option><option value="2">Usuario</option><option value="3">Capitan</option><option value="4">Jugador</option> </select></td><script src="js/ActualizarRango.js"></script>';
                 
                 player += '</tr>';
             });
