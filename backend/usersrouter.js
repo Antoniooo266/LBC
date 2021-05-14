@@ -40,8 +40,8 @@ var router = express.Router();
 
     connection.query('SELECT Contraseña FROM usuario WHERE Nickname = ?', [user], async (error, result) => {
         //se realiza la consulta para saber si el usuario existe
-        if (error) {
-          throw error;
+        if (result.length<0) {
+            res.redirect('../public/Login.html');
         } else {
            var resultado = await bcrypt.compare(pass, result[0].Contraseña);    //revisa la contraseña con la de la BD 
           if (resultado==true) {
@@ -83,11 +83,16 @@ var router = express.Router();
           Rango: req.body.Rango,
           Nickname: req.body.Name
         };
+        console.log(RangoObj);
         connection.query("UPDATE usuario SET Rango = ? WHERE Nickname = ?", [RangoObj.Rango, RangoObj.Nickname], (error) => {
             if (error) {
               throw error;
             }else{
-                res.redirect("/public/Mensaje.html");
+                if(RangoObj.Nickname == ''){
+                    res.redirect("/public/Jugadores.html")
+                }else{
+                    res.redirect("/public/Mensaje.html");
+                }
             }
           });
     });
