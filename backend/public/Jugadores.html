@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Añadir Torneos</title>
+    <title>Jugadores</title>
     <link href="./css/Jugadores.css" type="text/css" rel="stylesheet">
     <link rel="icon" type="image/png" href="Images/Logo.png" sizes="18x18">
 </head>
@@ -55,17 +55,16 @@
   </section>
 
   <div id="wrapper">
-    <form action="" method="POST">
+    <form action="../user/updatepriv" method="POST">
 
         <figure>
             <img src="./Images/Logo.png" id="Logo" alt="Logo de LBC">
         </figure>
         <div class="form-group">
-            <input class="form-control" type="text" name= "Nombre" placeholder="NickName">
+            <input class="form-control" type="text" name= "Name" placeholder="NickName">
         </div>
         <div class="form-group">
-            <select class="form-control" type="text" name= "joggo" placeholder="Rango">
-                <option value="-1">...</option>
+            <select class="form-control" type="text" name= "Rango" placeholder="Rango">
                 <option value="1">Administrador</option>
                 <option value="2">Usuario</option>
                 <option value="3">Equipo</option>
