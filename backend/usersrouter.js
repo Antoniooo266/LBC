@@ -6,7 +6,8 @@ const encriptar = encript.encriptar;
 var router = express.Router();
 
     //----ADD USER----
-    
+    //---Funcion que crea un Objeto User y lo añade en la Base de Datos
+
     router.post('/add', async (req, res) =>{
     const hashedPassword = await encriptar(req.body.password);  //se encripta la contraseña mediante el bcrypt
     const userObj = {       //se almacenan todos los datos introducidos en los input de la pagina Registar
@@ -26,12 +27,14 @@ var router = express.Router();
         }
         
     })
-});
+    });
+
     //---- END ADD USER----
 
     //----LOGGING USER----
     //Posible refactor en este metodo(separar toda la query a una funcion)
-router.post('/logging', async(req,res)=>{
+
+    router.post('/logging', async(req,res)=>{
     const pass=req.body.password;
     const user=req.body.firstname
 
@@ -52,18 +55,14 @@ router.post('/logging', async(req,res)=>{
             res.redirect('../public/Login.html')  //algun dato mal vuelve al Login
           }
         }
-      })
-
-
-        
-    
-})
+      })  
+    })
 
     //-----END LOGGING USER----
 
     //----GET USER----
 
-router.get('/get', (req, res) =>{
+    router.get('/get', (req, res) =>{
     const sql = 'SELECT * FROM usuario LEFT JOIN usuario_equipo ON usuario.ID_Usuario = usuario_equipo.ID_Usuario';    //muestra todos los datos de la taba usuario
     connection.query(sql, (error, results)=> {
         if(error) throw error;
@@ -73,15 +72,25 @@ router.get('/get', (req, res) =>{
             res.send('No hay resultados :(')
         }
     });
-});
+    });
 
     //----END GET USER----
 
     //----PRIVILEGIOS USUARIO----
-    router.put('/putpriv',(req,res)=>{
-
-    })
-
+    
+    router.post("/updatepriv", (req, res) => {
+        const RangoObj = {
+          Rango: req.body.Rango,
+          Nickname: req.body.Name
+        };
+        connection.query("UPDATE usuario SET Rango = ? WHERE Nickname = ?", [RangoObj.Rango, RangoObj.Nickname], (error) => {
+            if (error) {
+              throw error;
+            }else{
+                res.redirect("/public/Mensaje.html");
+            }
+          });
+    });
 
     //----END PRIVILEGIOS USUARIO----
 module.exports = router;
