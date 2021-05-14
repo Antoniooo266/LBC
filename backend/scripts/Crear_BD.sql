@@ -16,7 +16,7 @@ CREATE TABLE USUARIO(
 
 CREATE TABLE EQUIPO(
     ID_Equipo INT AUTO_INCREMENT,
-    Nombre VARCHAR(255) NOT NULL UNIQUE,
+    NombreEquipo VARCHAR(255) NOT NULL UNIQUE,
     Fecha DATE,
     Victorias INT,
     Derrotas INT,
@@ -26,7 +26,7 @@ CREATE TABLE EQUIPO(
 
 CREATE TABLE JUEGO(
     ID_Juego INT AUTO_INCREMENT,
-    Nombre VARCHAR(255),
+    NombreJuego VARCHAR(255),
     Descripcion VARCHAR(500),
     Tipo INT,
     PRIMARY KEY (ID_Juego)
@@ -34,7 +34,7 @@ CREATE TABLE JUEGO(
 
 CREATE TABLE TORNEO(
     ID_Torneo INT AUTO_INCREMENT,
-    Nombre VARCHAR(255),
+    NombreTorneo VARCHAR(255),
     ID_Juego INT,
     Cantidad INT,
     Fecha DATE,
@@ -55,14 +55,14 @@ CREATE TABLE PARTIDO(
 
 CREATE TABLE LIGA(
     ID_Liga INT AUTO_INCREMENT,
-    Nombre VARCHAR(255),
+    NombreLiga VARCHAR(255),
     Pais VARCHAR(255),
     PRIMARY KEY (ID_Liga)
 );
 
 CREATE TABLE RANGO(
     ID_Rango INT AUTO_INCREMENT,
-    Nombre VARCHAR(255),
+    NombreRango VARCHAR(255),
     Descripcion VARCHAR(500),
     PRIMARY KEY (ID_Rango)
 );
@@ -76,7 +76,7 @@ CREATE TABLE AMONESTACION(
 
 CREATE TABLE RONDA(
     ID_Ronda INT AUTO_INCREMENT,
-    Nombre VARCHAR(255),
+    NombreRonda VARCHAR(255),
     PRIMARY KEY (ID_Ronda)
 );
 
@@ -114,13 +114,13 @@ CREATE TABLE EQUIPO_LIGA(
 
 CREATE TABLE TIPO(
     ID_Tipo INT AUTO_INCREMENT,
-    Nombre VARCHAR(255),
+    NombreTipo VARCHAR(255),
     PRIMARY KEY (ID_Tipo)
 );
 
 CREATE TABLE PAGINA_WEB(
     ID_Web INT AUTO_INCREMENT,
-    Nombre VARCHAR(255),
+    NombrePag VARCHAR(255),
     URL VARCHAR(255),
     PRIMARY KEY (ID_Web)
 );
