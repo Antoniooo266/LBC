@@ -11,8 +11,7 @@ $(document).ready(function () {
 
                 var Fecha = value.Fecha_Nac;
                 Fecha = Fecha.substr(0, 10);
-
-
+              
                 //CONSTRUCTION OF ROWS HAVING
                 // DATA FROM JSON OBJECT
                 player += '<tr>';
