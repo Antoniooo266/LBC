@@ -4,7 +4,7 @@ var logger = require('morgan');
 const path = require('path');
 const { connect } = require('http2');
 const PORT = process.env.PORT || 3000;
-
+const passport =require('passport');
 //---- MIDLEWARE ----
 const usersrouter = require('./usersrouter.js');
 const torneosrouter = require('./torneosrouter.js')

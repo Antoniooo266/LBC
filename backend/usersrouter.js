@@ -40,8 +40,8 @@ var router = express.Router();
 
     connection.query('SELECT Contraseña FROM usuario WHERE Nickname = ?', [user], async (error, result) => {
         //se realiza la consulta para saber si el usuario existe
-        if (error) {
-          throw error;
+        if (result.length<0) {
+            res.redirect('../public/Login.html');
         } else {
            var resultado = await bcrypt.compare(pass, result[0].Contraseña);    //revisa la contraseña con la de la BD 
           if (resultado==true) {
