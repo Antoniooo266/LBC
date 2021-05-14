@@ -25,7 +25,7 @@ router.post("/addresult", async (req, res) => {
       }
     });
 
-    GetGanador(req.body.Ganador, function (err, data) {
+    GetIdEquipo(req.body.Ganador, function (err, data) {
       if (err) {
         console.log("ERROR : ", err);
       } else {
@@ -68,15 +68,5 @@ router.post("/addresult", async (req, res) => {
     );
 }
 
-function GetGanador(nombre, callback) {
-  connection.query(
-    "SELECT Nombre FROM equipo WHERE ID_Equipo = ?",
-    [nombre],
-    function (err, result) {
-      if (err) callback(err, null);
-      else callback(null, result[0].ID_Equipo);
-    }
-  );
-}
 //---- Fin Añadir Resultado----
   module.exports = router;
