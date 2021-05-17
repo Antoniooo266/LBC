@@ -2,6 +2,7 @@ const connection = require('./config');
 var express = require('express');
 const encript = require('./encriptar');
 const bcrypt = require('bcrypt');
+const  passport  = require('passport');
 const encriptar = encript.encriptar;
 var router = express.Router();
 
@@ -63,7 +64,7 @@ var router = express.Router();
     //----GET USER----
 
     router.get('/get', (req, res) =>{
-    const sql = 'SELECT * FROM usuario LEFT JOIN usuario_equipo ON usuario.ID_Usuario = usuario_equipo.ID_Usuario';    //muestra todos los datos de la taba usuario
+    const sql = 'SELECT * FROM usuario';    //muestra todos los datos de la taba usuario
     connection.query(sql, (error, results)=> {
         if(error) throw error;
         if(results.length > 0){
@@ -98,4 +99,19 @@ var router = express.Router();
     });
 
     //----END PRIVILEGIOS USUARIO----
+
+    //----GET PERFIL USER----
+
+    router.get('/getperfil', (req, res) =>{
+        const sql = 'SELECT * FROM view_tabla_perfil';    //muestra todos los datos de la taba usuario
+        connection.query(sql, (error, results)=> {
+            if(error) throw error;
+            if(results.length > 0){
+                res.json(results);  //devuelve los resultados como json
+            }else{
+                res.send('No hay resultados :(')
+            }
+        });
+        });
+
 module.exports = router;
