@@ -6,6 +6,7 @@ const  passport  = require('passport');
 const encriptar = encript.encriptar;
 var router = express.Router();
 var rango=null;
+var ID=null;
     //----ADD USER----
     //---Funcion que crea un Objeto User y lo añade en la Base de Datos
 
@@ -39,13 +40,15 @@ var rango=null;
     const pass=req.body.password;
     const user=req.body.firstname
 
-    connection.query('SELECT Contraseña,Rango FROM usuario WHERE Nickname = ?', [user], async (error, result) => {
+    connection.query('SELECT ID_Usuario,Contraseña,Rango FROM usuario WHERE Nickname = ?', [user], async (error, result) => {
         //se realiza la consulta para saber si el usuario existe
         if (result.length<0) {
             res.redirect('../public/Login.html');
         } else {
            var resultado = await bcrypt.compare(pass, result[0].Contraseña);    //revisa la contraseña con la de la BD 
-           rango=result[1].Rango;
+           rango=result[0].Rango;
+           ID=result[0].ID_Usuario;
+           console.log(ID);
            console.log(rango);
           if (resultado==true) {
               if (user=="admin") {
@@ -117,3 +120,5 @@ var rango=null;
         });
 
 module.exports = router;
+module.exports = rango;
+module.exports= ID;
