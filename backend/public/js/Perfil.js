@@ -1,3 +1,8 @@
+import { ID, Rango } from './../../usersrouter.js';
+
+Console.log(ID);
+Console.log(Rango);
+
 $(document).ready(function () {
 
     // FETCHING DATA FROM JSON FILE

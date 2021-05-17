@@ -7,6 +7,7 @@ const encriptar = encript.encriptar;
 var router = express.Router();
 var rango;
 var ID;
+module.exports = {ID, rango}
     //----ADD USER----
     //---Funcion que crea un Objeto User y lo añade en la Base de Datos
 
