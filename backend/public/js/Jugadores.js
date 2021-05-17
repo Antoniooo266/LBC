@@ -23,11 +23,11 @@ $(document).ready(function () {
 
                 player += '<td>' + value.Correo + '</td>';
 
-                player += '<td>' +value.ID_Equipo + '</td>';
+                player += '<td>' +value.NombreEquipo + '</td>';
 
                 player += '<td>' + Fecha + '</td>';
 
-                player += '<td>' + value.Rango + '</td>';
+                player += '<td>' + value.NombreRango + '</td>';
                 player += '</tr>';
             });
             
