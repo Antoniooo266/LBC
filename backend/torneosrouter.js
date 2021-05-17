@@ -30,7 +30,7 @@ router.post("/add", (req, res) => {
 //Muestra todos los torneos que hay en la base de datos en un json
 
 router.get("/get", (req, res) => {
-  const sql = "SELECT * FROM torneo";
+  const sql = "SELECT * FROM view_tabla_torneo";
   connection.query(sql, (error, results) => {
     if (error) throw error;
     if (results.length > 0) {
