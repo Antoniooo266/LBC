@@ -41,7 +41,7 @@ router.post("/addresult", async (req, res) => {
       };
       const GanadorObj = {
         Ganador: Ganador,
-        Nombre: req.body.NombreTorneo
+        NombreTorneo: req.body.NombreTorneo
       }
       console.log(resultObj);
       console.log(GanadorObj);
@@ -49,7 +49,7 @@ router.post("/addresult", async (req, res) => {
         if (error) {
           throw error;
         } else {
-          connection.query("UPDATE torneo SET Ganador = ? WHERE Nombre = ?", [GanadorObj.Ganador, GanadorObj.Nombre], (error) => {
+          connection.query("UPDATE torneo SET Ganador = ? WHERE NombreTorneo = ?", [GanadorObj.Ganador, GanadorObj.NombreTorneo], (error) => {
             if (error) {
               throw error;
             }
@@ -63,7 +63,7 @@ router.post("/addresult", async (req, res) => {
   
   function GetIdEquipo(nombre, callback) {
     connection.query(
-      "SELECT ID_Equipo FROM equipo WHERE Nombre = ?",
+      "SELECT ID_Equipo FROM equipo WHERE NombreEquipo = ?",
       [nombre],
       function (err, result) {
         if (err) callback(err, null);
