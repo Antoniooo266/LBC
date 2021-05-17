@@ -9,7 +9,7 @@ var router = express.Router();
 
 router.post("/add", (req, res) => {
   const torneoObj = {
-    Nombre: req.body.name,//nombre
+    NombreTorneo: req.body.name,//nombre
     ID_Juego: req.body.joggo,//id_juego
     Cantidad: req.body.teams,//cantidad de jugadores
     Fecha: req.body.fecha,//fecha del torneo
