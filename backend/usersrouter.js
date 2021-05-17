@@ -2,6 +2,7 @@ const connection = require('./config');
 var express = require('express');
 const encript = require('./encriptar');
 const bcrypt = require('bcrypt');
+const  passport  = require('passport');
 const encriptar = encript.encriptar;
 var router = express.Router();
 
