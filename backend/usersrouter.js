@@ -5,8 +5,8 @@ const bcrypt = require('bcrypt');
 const  passport  = require('passport');
 const encriptar = encript.encriptar;
 var router = express.Router();
-var rango=null;
-var ID=null;
+var rango;
+var ID;
     //----ADD USER----
     //---Funcion que crea un Objeto User y lo añade en la Base de Datos
 
@@ -119,12 +119,5 @@ var ID=null;
         });
         });
 
-<<<<<<< HEAD
-    //----END PERFIL USER----
+module.exports = router;
 
-module.exports = router;
-=======
-module.exports = router;
-module.exports = rango;
-module.exports= ID;
->>>>>>> 233874bde8660d6128103f8979c79fc506f0b8bf
