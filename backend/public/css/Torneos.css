@@ -60,7 +60,7 @@ nav li:hover {
 
 
  table {
-     margin: 10em 13.4em;
+     margin: 10em 10em;
      font-size: 20px;
 
      border-collapse: collapse;
@@ -77,7 +77,7 @@ nav li:hover {
 
 td {
     border: none;
-    padding: 4em;
+    padding: 2em;
 }
 
 th, td {

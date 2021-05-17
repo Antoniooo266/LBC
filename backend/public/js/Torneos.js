@@ -14,20 +14,20 @@ $(document).ready(function () {
                 var Fecha = Fecha.substr(0, 10);
 
         
-                if(value.Ganador == null){
-                    value.Ganador = "No finalizado"
+                if(value.NombreEquipo == null){
+                    value.NombreEquipo = "No finalizado"
                 }
 
                 //CONSTRUCTION OF ROWS HAVING
                 // DATA FROM JSON OBJECT
                 student += '<tr>';
-                student += '<td>' + value.Nombre + '</td>';
+                student += '<td>' + value.NombreTorneo + '</td>';
 
                 student += '<td>' + Fecha + '</td>';
 
                 student += '<td>' + value.Premio + '</td>';
 
-                student += '<td>' +value.Ganador + '</td>';
+                student += '<td>' +value.NombreEquipo + '</td>';
                 student += '</tr>';
             });
 
