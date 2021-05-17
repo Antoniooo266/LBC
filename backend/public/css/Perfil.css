@@ -11,9 +11,9 @@
 }
 body{
     background: linear-gradient(
-            rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0.5)
-    ),url(../Images/Fon.jpg) no-repeat center center fixed;
+            rgba(0, 0, 0, 0.158),
+            rgba(0, 0, 0, 0.158)
+    ),url(../Images/Fondo_Perfil.png) no-repeat center center fixed;
     background-size: cover;
     background-color: black;
     opacity: 14;
@@ -63,4 +63,39 @@ nav li:hover {
     width: 1.5em;
     padding-right: 0.5em;
 
+}
+
+#Perfil{
+    margin: 15em 10em;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.3)
+)   no-repeat center center fixed;
+    color: white;
+
+}
+#Imagen_Perfil{
+    width: 15em;
+    height: 7em;
+    text-decoration: none;
+    font-family: "titilliumtext22l_ltmedium", sans-serif;
+
+
+}
+#Nombre{
+    color: white;
+    font-family: "titilliumtext22l_ltmedium", sans-serif;
+    padding-left: 0.7em;
+    font-size: 36px;
+    text-decoration: none;
+    font-family: "titilliumtext22l_ltmedium", sans-serif;
+}
+
+#Estadisticas{
+    float: right;
+    margin-right: 20em;
+}
+#Datos{
+    float: right;
+    margin-left: 10em;
 }
