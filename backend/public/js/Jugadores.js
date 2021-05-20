@@ -12,8 +12,8 @@ $(document).ready(function () {
                 var Fecha = value.Fecha_Nac;
                 Fecha = Fecha.substr(0, 10);
 
-                if(value.Nombre == null){
-                    value.Nombre = "Sin equipo"
+                if(value.NombreEquipo == null){
+                    value.NombreEquipo = "Sin equipo"
                 }
               
                 //CONSTRUCTION OF ROWS HAVING

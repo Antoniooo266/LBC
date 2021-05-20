@@ -91,7 +91,7 @@ module.exports = {ID, rango}
     //----GET USER ID----
 
     router.get('/getid', (req, res) =>{
-        connection.query('SELECT * FROM view_tabla_perfil WHERE ID_Usuario = ?', [ID], (error, results)=> {
+        connection.query('SELECT * FROM view_tabla_perfil WHERE ID_Usuario = 3', (error, results)=> {
             if(error) throw error;
             if(results.length > 0){
                 res.json(results);  //devuelve los resultados como json

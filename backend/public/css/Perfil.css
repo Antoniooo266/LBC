@@ -62,40 +62,64 @@ nav li:hover {
 
 }
 
-#Perfil{
-    margin: 15em 10em;
+#table{
+    margin: 8em 8em;
     background: linear-gradient(
-        rgba(0, 0, 0, 0.3),
-        rgba(0, 0, 0, 0.3)
+        rgba(0, 0, 0, 0.500),
+        rgba(0, 0, 0, 0.500)
 )   no-repeat center center fixed;
     color: white;
+    text-align: center;
+    width: 80%;
+
+
 
 }
 #Imagen_Perfil{
     width: 15em;
     height: 7em;
-    text-decoration: none;
     font-family: "titilliumtext22l_ltmedium", sans-serif;
-
-
+    padding-top: 2em;
 }
 #Nombre{
     color: white;
     font-family: "titilliumtext22l_ltmedium", sans-serif;
-    padding-left: 0.7em;
     font-size: 36px;
-    text-decoration: none;
     font-family: "titilliumtext22l_ltmedium", sans-serif;
 }
 
 #Estadisticas{
-    float: left;
-    margin-left: 5em;
+    text-align: center;
     font: 36px "Harlow Solid Italic";
 }
 #Datos{
-    float: right;
-    margin-left: 5em;
-    margin-right: 2em;
+text-align: center;
     font: 36px "Harlow Solid Italic";
+}
+#Fila1{
+    padding: 1em;
+    margin-bottom: 5em;
+    
+}
+
+
+td{
+    text-align: center;
+    font-size: 24px;
+}
+
+#Win{
+    width: 1em;
+    height: 0.8em;
+
+}
+#Lose{
+    width: 1.2em;
+    height: 0.8em;
+    margin-left: 1em;
+    margin-right: 0.2em;
+}
+#Rango{
+    width: 1.5em;
+    height: 1em;
 }
