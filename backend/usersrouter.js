@@ -57,7 +57,7 @@ module.exports = {ID, rango}
            console.log(ID);
            console.log(rango);
           if (resultado==true) {
-              if (user=="admin") {
+              if (rango==4) {
                   //si el usuario es admin se le redirige a la pagina de admin
                   res.redirect('../public/Admin.html')
               }else{
@@ -72,7 +72,7 @@ module.exports = {ID, rango}
 
     //-----END LOGGING USER----
 
-    //----GET USERS----
+    //----GET USER----
 
     router.get('/get', (req, res) =>{
     const sql = 'SELECT * FROM view_tabla_usuario';    //muestra todos los datos de la taba usuario
@@ -87,21 +87,6 @@ module.exports = {ID, rango}
     });
 
     //----END GET USER----
-
-    //----GET USER ID----
-
-    router.get('/getid', (req, res) =>{
-        connection.query('SELECT * FROM view_tabla_perfil WHERE ID_Usuario = ?', [ID], (error, results)=> {
-            if(error) throw error;
-            if(results.length > 0){
-                res.json(results);  //devuelve los resultados como json
-            }else{
-                res.send('No hay resultados :(')
-            }
-        });
-    });
-
-    //----END GET USER ID----
 
     //----PRIVILEGIOS USUARIO----
     
