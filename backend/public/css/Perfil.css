@@ -89,10 +89,13 @@ nav li:hover {
 }
 
 #Estadisticas{
-    float: right;
-    margin-right: 20em;
+    float: left;
+    margin-left: 5em;
+    font: 36px "Harlow Solid Italic";
 }
 #Datos{
     float: right;
-    margin-left: 10em;
+    margin-left: 5em;
+    margin-right: 2em;
+    font: 36px "Harlow Solid Italic";
 }
