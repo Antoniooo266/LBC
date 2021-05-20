@@ -46,7 +46,7 @@ module.exports = {ID, rango}
     const pass=req.body.password;
     const user=req.body.firstname
 
-    connection.query('SELECT ID_Usuario,Contraseña,Rango FROM usuario WHERE Nickname = ?', [user], async (error, result) => {
+    connection.query('SELECT ID_Usuario ,Contraseña ,Rango FROM usuario WHERE Nickname = ?', [user], async (error, result) => {
         //se realiza la consulta para saber si el usuario existe
         if (result.length<0) {
             res.redirect('../public/Login.html');
@@ -55,7 +55,7 @@ module.exports = {ID, rango}
            rango=result[0].Rango;
            ID=result[0].ID_Usuario;
            console.log(ID);
-           console.log(rango);
+           console.log(resultado);
           if (resultado==true) {
               if (rango==4) {
                   //si el usuario es admin se le redirige a la pagina de admin
