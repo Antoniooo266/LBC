@@ -25,6 +25,7 @@ $(document).ready(function () {
                 if(value.Media == null){
                     value.Media = 0
                 }
+                
               
                 //CONSTRUCTION OF ROWS HAVING
                 // DATA FROM JSON OBJECT
@@ -43,7 +44,7 @@ $(document).ready(function () {
 
                 player += '<div><td id="Fila2"><img src="Images/corona.png" id="Win" > ' + value.Victorias +'<img src="Images/Perdedor.png" id="Lose" >' +value.Derrotas +'</td></div>';
 
-                player += '<td id="Fila3">' + value.Pais + '</td>';
+                player += '<td id="Fila3">' + value.País + '</td>';
 
 
                 player += '</tr>';
@@ -51,11 +52,7 @@ $(document).ready(function () {
                 player += '<tr>';
 
                 player += '<td id="Fila1">' + '</td>';
-
-
-
-                
-
+                player += '<td id="Fila1"><img src="Images/Media.png" id="Win" >   ' +value.Media +'</td>';
                 player += '</tr>';
             });
             

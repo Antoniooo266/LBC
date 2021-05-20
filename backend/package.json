@@ -14,6 +14,7 @@
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
     "connect-timeout": "^1.9.0",
+    "country-flags-svg": "^1.1.0",
     "fs": "*",
     "jsonwebtoken": "^8.5.1",
     "lsof": "^0.1.0",
