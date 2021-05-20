@@ -28,7 +28,12 @@ module.exports = {ID, rango}
         }else{
             res.redirect('/public/Home.html')   //redirige a la pagina principal
         }
-        
+        connection.query('SELECT ID_Usuario FROM usuario WHERE Nickname = ?',req.body.name,(err,res)=>{
+            if (err) {throw err;   
+            }
+            ID=res[0].ID_Usuario;
+            console.log(ID)
+        })
     })
     });
 
