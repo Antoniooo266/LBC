@@ -63,7 +63,7 @@ nav li:hover {
 }
 
 #table{
-    margin: 8em 8em;
+    margin: 11em 8em;
     background: linear-gradient(
         rgba(0, 0, 0, 0.500),
         rgba(0, 0, 0, 0.500)
@@ -123,3 +123,13 @@ td{
     width: 1.5em;
     height: 1em;
 }
+
+#Perfil{
+    width: 2em;
+    padding-bottom: 0.2em;
+}
+nav li ul{
+    display:none;
+}
+
+nav li:hover ul{display:contents;}

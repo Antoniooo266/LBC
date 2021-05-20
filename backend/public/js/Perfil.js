@@ -30,7 +30,7 @@ $(document).ready(function () {
                 //CONSTRUCTION OF ROWS HAVING
                 // DATA FROM JSON OBJECT
                 player += '<tr>';
-                player += '<td id="Fila1">' + value.Nickname + '</td>';
+                player += '<td id="Fila1" style="margin-bottom:2em">' + value.Nickname + '</td>';
 
                 player += '<td id="Fila2"><img src="Images/Team.png" id="Lose" >' + value.NombreEquipo + '</td>';
 
@@ -42,17 +42,9 @@ $(document).ready(function () {
 
                 player += '<td id="Fila1"><img src="Images/Rango.png" id="Rango" >' + value.NombreRango + '</td>';
 
-                player += '<div><td id="Fila2"><img src="Images/corona.png" id="Win" > ' + value.Victorias +'<img src="Images/Perdedor.png" id="Lose" >' +value.Derrotas +'</td></div>';
+                player += '<div><td id="Fila2"><img src="Images/corona.png" id="Win" > ' + value.Victorias +'<img src="Images/Perdedor.png" id="Lose" >' +value.Derrotas + '<img src="Images/Media.png" id="Lose" >   ' +value.Media +'</td></div>';
 
                 player += '<td id="Fila3">' + value.País + '</td>';
-
-
-                player += '</tr>';
-
-                player += '<tr>';
-
-                player += '<td id="Fila1">' + '</td>';
-                player += '<td id="Fila1"><img src="Images/Media.png" id="Win" >   ' +value.Media +'</td>';
                 player += '</tr>';
             });
             
