@@ -57,7 +57,7 @@ module.exports = {ID, rango}
            console.log(ID);
            console.log(resultado);
           if (resultado==true) {
-              if (rango==4) {
+              if (rango==1) {
                   //si el usuario es admin se le redirige a la pagina de admin
                   res.redirect('../public/Admin.html')
               }else{
