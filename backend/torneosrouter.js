@@ -60,10 +60,19 @@ connection.query('DELETE FROM torneo WHERE ID_Torneo = ?',[req.body.Eliminar],fu
 //Recoge los datos introducidos en los campos de texto de la pagina Addtorneo.html y modifica los datos del torneo previamente seleccionado (falta testeo)
 
 router.post('/update',(req,res)=>{
-  connection.query('DELETE FROM torneo WHERE ID_Torneo = ?',[req.body.Editar],function (err,solution){
+  const NewTorneo = {
+    ID_Torneo: req.body.id,
+    NombreTorneo: req.body.name,//nombre
+    ID_Juego: req.body.joggo,//id_juego
+    Cantidad: req.body.teams,//cantidad de jugadores
+    Fecha: req.body.fecha,//fecha del torneo
+    Premio: req.body.premio,//premio del torneo
+  }
+  console.log(NewTorneo);
+  connection.query('UPDATE torneo SET NombreTorneo = ?, ID_Juego = ?, Cantidad = ?, Fecha = ?, Premio = ? WHERE ID_Juego = ?',[NewTorneo.NombreTorneo, NewTorneo.ID_Juego, NewTorneo.Cantidad, NewTorneo.Fecha, NewTorneo.Premio, NewTorneo.ID_Torneo
+],function (err,solution){
     if(err) throw err;
-    res.redirect('/public/AddTorneo.html');
-
+    res.redirect('/public/Admin.html');
   })
   });
 
