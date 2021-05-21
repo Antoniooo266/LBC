@@ -70,7 +70,8 @@ router.post('/update',(req,res)=>{
   }
   console.log(NewTorneo);
   connection.query('UPDATE torneo SET NombreTorneo = ?, ID_Juego = ?, Cantidad = ?, Fecha = ?, Premio = ? WHERE ID_Juego = ?',[NewTorneo.NombreTorneo, NewTorneo.ID_Juego, NewTorneo.Cantidad, NewTorneo.Fecha, NewTorneo.Premio, NewTorneo.ID_Torneo
-],function (err,solution){
+    
+  ],function (err,solution){
     if(err) throw err;
     res.redirect('/public/Admin.html');
   })
