@@ -10,22 +10,111 @@ body{
     ),url(../Images/Fondo_Admin.jpg) no-repeat center center fixed;
     background-size: cover;
 }
+table {
+    margin: 3em 10em;
+    font-size: 20px;
+
+    border-collapse: collapse;
+    background: linear-gradient(
+            rgba(255, 255, 255, 0.3),
+            rgba(255, 255, 255, 0.3)
+    )   no-repeat center center fixed;
+    border-radius: 20px;
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    vertical-align: middle;
+}
+
+th, td {
+   font-weight: bold;
+   border: 1px solid black;
+   border: none;
+   text-align: center;
+   padding: 2em;
+   padding-left: 1.5em;
+   padding-right: 1.5em;
+}
+
+td {
+   font-weight: lighter;
+}
+tr:hover{
+   background: linear-gradient(
+           rgba(0, 0, 0, 0.3),
+           rgba(0, 0, 0, 0.3)
+   )   no-repeat center center fixed;
+}
+
+#Trash{
+    width: 2em;
+    float: right;
+    display: block;
+    margin-right: 0.2em;
+}
+#Trash2{
+    width: 2em;
+    float: left;
+    display: block;
+    margin-right: 0.2em;
+}
+
+#si{
+    background-color: #06570a;
+    padding: 1em;
+    margin-right: 15em;
+    color: white;
+    float: right;
+}
+
+#no{
+
+    background-color: #aa051b;
+    padding: 1em;
+    margin-left: 15em;
+    color: white;
+    float: left;
+}
+
 
 #wrapper{
-    margin: 4em 25em;
+    margin: 0em auto 5em 65em;
     text-align: center;
     background-color: white;
     border-radius: 10px;
+    float: left;
+    position: fixed;
+}
+.form-control{
+    font-size: 20px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #0000001E;
+    resize: none;
+    font-size: 14px;
 
-
+    color: rgba(0,0,0,0.87);
 
 
 }
+a{
+    text-decoration: none;
+    color: white;
+
+}
+
+.Enviar{
+    background-color: #324ea2;
+    padding: 1em;
+    margin-bottom: 1em;
+    color: white;
+}
+
 .form-control{
     margin: 2em;
     font-size: 20px;
     display: block;
-    width: 90%;
+    width: 80%;
     border: none;
     border-bottom: 1px solid #0000001E;
     resize: none;
@@ -170,16 +259,3 @@ nav ul,nav li {
     font-weight: 300;
     src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
 }
-
-#Imagen_Mensaje{
-    width: 3em;
-    height: 3em;
-    float: right;
-    padding-right: 10em;
-}
-.Enviar{
-    margin-bottom: 2em;
-    color: white;
-}
-
-

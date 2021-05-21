@@ -21,7 +21,7 @@ router.post("/add", (req, res) => {
     if (error) {
       throw error;
     } else {
-      res.redirect("/public/Mensaje.html");
+
     }
   });
 });

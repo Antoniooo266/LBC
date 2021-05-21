@@ -23,13 +23,18 @@ $(document).ready(function () {
                 student += '<td>' + value.NombreTorneo + '</td>';
                 student += '<td>' + res + '</td>';
                 student += '<td><form action="/torneo/update" method="post"><button type="submit" style="background-color: #515468;" name="Editar" value="'+value.ID_Torneo+'"><img src="/public/Images/Edit.png" id="Trash2"></button></form>'
-                student += '<td><form action="/torneo/delete" method="post"><button type="submit" style="background-color: #515468;" name="Eliminar" value="'+value.ID_Torneo+'" ><img src="/public/Images/Trash.png" id="Trash"></button></form></td>';
+                student += '<td><form action="/torneo/delete" method="post"><button type="submit" style="background-color: #515468;" name="Eliminar" value="'+value.ID_Torneo+'"><img src="/public/Images/Trash.png" id="Trash"></button></form></td>';
 
                 student += '</tr>';
                 id+=1;
+
+                
             });
                 
             //INSERTING ROWS INTO TABLE
             $('#table').append(student);
         });
+
 });
+
+

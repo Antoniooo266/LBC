@@ -49,6 +49,9 @@
     </ul>
 </nav>
 
+
+
+
 <div id="wrapper">
     <form action="/torneo/add" method="POST">
 
@@ -75,12 +78,21 @@
             <input class="form-control" type="text" name="premio" placeholder="Premio">
         </div>
         <div class="form-group">
-            <button class="Enviar" type="submit">Crear Torneo</button>
+            <button class="Enviar" type="submit" onclick="paco()">Crear Torneo</button>
         </div>
 
     </form>
 </div>
 <script>
+
+function paco(){
+    window.open('Mensaje.html')
+    window.location.reload('true')
+    setTimeout(paco, 3000);
+    window.close('Mensaje.html')
+  };
+  
+    
 </script>
 </body>
 </html>
