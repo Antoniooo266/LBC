@@ -73,7 +73,7 @@ router.post('/update',(req,res)=>{
     
   ],function (err,solution){
     if(err) throw err;
-    res.redirect('/public/Admin.html');
+    res.redirect('/public/Mensaje.html');
   })
   });
 
