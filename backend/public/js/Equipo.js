@@ -15,10 +15,9 @@ $(document).ready(function () {
 
 
                 var Total =  value.Victorias + value.Derrotas
-                var WinRate = value.Victorias/Total
 
-                WinRate = WinRate.substr(2, 4);
-
+               var  WR = (value.Victorias * 100) / Total;
+               var n = WR.toFixed(2);
                 
 
                 //CONSTRUCTION OF ROWS HAVING
@@ -32,7 +31,7 @@ $(document).ready(function () {
 
                 student += '<td>' +value.Derrotas + '</td>';
 
-                student += '<td>' + WinRate + '%</td>';
+                student += '<td>' + n + '%</td>';
                 student += '</tr>';
             });
 
