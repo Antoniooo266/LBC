@@ -8,6 +8,7 @@ var router = express.Router();
 //Recoge los datos de la pagina AddTorneo.html y los almacena en un objeto despues de eso se envian a la base de datos donde son almacenados y redirige a Mensaje.html para confirmar de que se ha enviado correctamente 
 
 router.post("/add", (req, res) => {
+
   const torneoObj = {
     NombreTorneo: req.body.name,//nombre
     ID_Juego: req.body.joggo,//id_juego
@@ -19,7 +20,7 @@ router.post("/add", (req, res) => {
     if (error) {
       throw error;
     } else {
-
+      res.redirect('/public/Mensaje.html')
     }
   });
 });
