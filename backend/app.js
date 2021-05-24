@@ -10,6 +10,7 @@ const usersrouter = require('./usersrouter.js');
 const torneosrouter = require('./torneosrouter.js')
 const resultadorouter=require('./resutadosrouter.js')
 const equiporouter=require('./equiporouter.js')
+const traspasosrouter = require('./traspasosrouter.js')
 const app = express();
 
 //---- END MIDLEWARE ----
@@ -30,6 +31,9 @@ app.use('/torneo', torneosrouter);
 app.use('/resultado',resultadorouter);
 
 app.use('/equipo',equiporouter);
+
+app.use('/traspasos',traspasosrouter);
+
 
 //--- FIN APP ----
 

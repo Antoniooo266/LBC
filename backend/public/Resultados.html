@@ -60,10 +60,10 @@
             <input class="form-control" type="text" placeholder="Nombre del Torneo" name="NombreTorneo">
         </div>
         <div class="form-group">
-            <select class="form-control" id="Select_Winner" type="text" onchange="Ganador(this)">
-                <option value="Cuartos">Cuartos</option>
-                <option value="Semis">Semifinales</option>
-                <option value="Final" id="Ganador">Final</option>
+            <select class="form-control" name="ronda" id="Select_Winner" type="text" onchange="Ganador(this)">
+                <option value="3">Cuartos</option>
+                <option value="2">Semifinales</option>
+                <option value="1" id="Ganador">Final</option>
             </select>
         </div>
         <div id="ifYes" style="display: none;">

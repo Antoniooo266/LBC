@@ -13,7 +13,7 @@ router.get("/get", (req, res) => {
         res.send("No hay resultados :(");
       }
     });
-  });
+});
 
 router.post('/add', (req, res) =>{
   const EquipoObj = {
@@ -49,6 +49,4 @@ router.post('/update',(req,res)=>{
   })
   });
 
-
-
-  module.exports = router;
+module.exports = router;

@@ -23,14 +23,16 @@ router.post("/addresult", async (req, res) => {
         equipoLocal = data;
       }
     });
-
-    GetIdEquipo(req.body.Winner, function (err, data) {
-      if (err) {
-        console.log("ERROR : ", err);
-      } else {
-        Ganador = data;
-      }
-    });
+    if(req.body.ronda == 1){
+      GetIdEquipo(req.body.Winner, function (err, data) {
+        if (err) {
+          console.log("ERROR : ", err);
+        } else{
+          Ganador = data;
+        }
+      });
+    }
+  
     setTimeout(()=>{console.log(equipoLocal);
       const resultObj = {
         ID_Visitante: equipoVisitante,
@@ -39,23 +41,30 @@ router.post("/addresult", async (req, res) => {
         Resultado_Visitante: req.body.ResultVisitante,
         Fecha: req.body.Date,
       };
-      const GanadorObj = {
-        Ganador: Ganador,
-        NombreTorneo: req.body.NombreTorneo
+      var GanadorObj
+      console.log(req.body.ronda + " Ronda")
+      if (req.body.ronda == 1) {
+        
+        GanadorObj = {
+          Ganador: Ganador,
+          NombreTorneo: req.body.NombreTorneo
+        }
       }
+      
       console.log(resultObj);
-      console.log(GanadorObj);
+      //console.log(GanadorObj);
       connection.query("INSERT INTO partido SET ? ", resultObj, (error) => {
         if (error) {
           throw error;
-        } else {
+        }
+        if (req.body.ronda == 1) {
           connection.query("UPDATE torneo SET Ganador = ? WHERE NombreTorneo = ?", [GanadorObj.Ganador, GanadorObj.NombreTorneo], (error) => {
             if (error) {
               throw error;
             }
           });
-          res.redirect("/public/Mensaje.html");
         }
+        res.redirect("/public/Mensaje.html");
       });
   }, 3000);
     
