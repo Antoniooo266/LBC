@@ -59,26 +59,26 @@
             <img src="./Images/Logo.png" id="Logo" alt="Logo de LBC">
         </figure>
         <div class="form-group">
-            <input class="form-control" type="text" name= "name" placeholder="Nombre del Torneo">
+            <input class="form-control" type="text" name= "name" placeholder="Nombre del Torneo" required>
         </div>
         <div class="form-group">
-            <select class="form-control" type="text" name= "joggo" placeholder="Nombre del Juego">
+            <select class="form-control" type="text" name= "joggo" placeholder="Nombre del Juego" required>
                 <option value="1">League of Legends</option>
                 <option value="2">Call of Duty®: Warzone</option>
                 <option value="3">Counter-Strike: Global Offensive</option>
             </select>
         </div>
         <div class="form-group">
-            <input class="form-control" type="number" name="teams" placeholder="Cantidad de equipos">
+            <input class="form-control" type="number" name="teams" placeholder="Cantidad de equipos" required>
         </div>
         <div class="form-group">
-            <input class="form-control" type="date" name="fecha" placeholder="Fecha del torneo">
+            <input class="form-control" type="date" name="fecha" placeholder="Fecha del torneo" required>
         </div>
         <div class="form-group">
-            <input class="form-control" type="text" name="premio" placeholder="Premio">
+            <input class="form-control" type="text" name="premio" placeholder="Premio" required>
         </div>
         <div class="form-group">
-            <button class="Enviar" type="submit" onclick="paco()">Crear Torneo</button>
+            <button class="Enviar" type="submit" onclick="" >Crear Torneo</button>
         </div>
 
     </form>
@@ -86,10 +86,13 @@
 <script>
 
 function paco(){
+  
+    
     window.open('Mensaje.html')
     window.location.reload('true')
     setTimeout(paco, 3000);
     window.close('Mensaje.html')
+    
   };
   
     
