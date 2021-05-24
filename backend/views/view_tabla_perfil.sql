@@ -8,7 +8,6 @@ select `lbc`.`usuario`.`ID_Usuario` AS `ID_Usuario`,
        `lbc`.`rango`.`NombreRango`  AS `NombreRango`,
        `e`.`NombreEquipo`           AS `NombreEquipo`,
        `e`.`Victorias`              AS `Victorias`,
-       `e`.`Derrotas`               AS `Derrotas`,
-       `e`.`Media`                  AS `Media`
+       `e`.`Derrotas`               AS `Derrotas`
 from ((`lbc`.`usuario` left join (`lbc`.`usuario_equipo` left join `lbc`.`equipo` `e` on ((`lbc`.`usuario_equipo`.`ID_Equipo` = `e`.`ID_Equipo`))) on ((`lbc`.`usuario`.`ID_Usuario` = `lbc`.`usuario_equipo`.`ID_Usuario`)))
          left join `lbc`.`rango` on ((`lbc`.`usuario`.`Rango` = `lbc`.`rango`.`ID_Rango`)));

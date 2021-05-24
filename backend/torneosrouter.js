@@ -15,9 +15,7 @@ router.post("/add", (req, res) => {
     Fecha: req.body.fecha,//fecha del torneo
     Premio: req.body.premio,//premio del torneo
   };
-  
-
-  connection.query("INSERT INTO torneo SET ?", torneoObj, (error) => {// es la consulta donde se inserta los datos
+  connection.query('INSERT INTO torneo SET ?', torneoObj, (error) => {// es la consulta donde se inserta los datos
     if (error) {
       throw error;
     } else {
@@ -30,7 +28,7 @@ router.post("/add", (req, res) => {
 //Muestra todos los torneos que hay en la base de datos en un json
 
 router.get("/get", (req, res) => {
-  const sql = "SELECT * FROM view_tabla_torneo";
+  const sql = 'SELECT * FROM view_tabla_torneo';
   connection.query(sql, (error, results) => {
     if (error) throw error;
     if (results.length > 0) {
@@ -46,8 +44,7 @@ router.get("/get", (req, res) => {
 //---- Borrar Torneo ----
 //Permite borrar un torneo seleccionado mediante el id (falta comprobarlo) y redirige a Mensaje.html para dar feedback
 
-router.post('/delete',(req,res)=>{
-  
+router.post('/delete',(req,res)=>{ 
 connection.query('DELETE FROM torneo WHERE ID_Torneo = ?',[req.body.Eliminar],function (err,solution){
   if(err) throw err;
   res.redirect('/public/Mensaje.html')
