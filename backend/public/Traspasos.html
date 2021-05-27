@@ -10,25 +10,17 @@
 <nav class="main-menu">
     <ul>
         <li>
-            <a href="AddEquipo.html">
+            <a href="Jugadores.html">
                 <i class="fa fa-2x"></i>
-                <span class="nav-text">Añadir Equipo</span>
+                <span class="nav-text">Modificar Privilegios</span>
             </a>
         </li>
 
 
         <li class="has-subnav">
-            <a href="ModificarEquipo.html">
+            <a href="Traspasos.html">
                 <i class="fa fa-2x"></i>
-                <span class="nav-text">Modificar Equipo</span>
-            </a>
-        </li>
-
-
-        <li class="has-subnav">
-            <a href="EliminarEquipo.html">
-                <i class="fa fa-2x"></i>
-                <span class="nav-text">Eliminar Equipo</span>
+                <span class="nav-text">Traspasos</span>
             </a>
         </li>
 
@@ -41,20 +33,34 @@
     </ul>
 </nav>
 
+<section>
 
 
-
-<div id="wrapper">
-    <form action="/torneo/add" method="POST">
-
+    <!-- TABLE CONSTRUCTION-->
+    <table id='table'>
+      <!-- HEADING FORMATION -->
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Fecha</th>
+  
+      </tr>
+      <script src="js/Traspasos.js">
+      </script>
+  
+  </section>
+  
+  <div id="wrapper">
+    <form action="/torneo/update" method="POST">
+  
         <figure>
             <img src="./Images/Logo.png" id="Logo" alt="Logo de LBC">
         </figure>
         <div class="form-group">
-            <input class="form-control" type="text" name= "name" placeholder="Nombre del Equipo">
-        </div>
+          <input class="form-control" type="text" name= "id" placeholder="ID del Equipo">
+      </div>
         <div class="form-group">
-            <input class="form-control" type="text" name= "Capitan" placeholder="Nombre del Capitan">
+            <input class="form-control" type="text" name= "name" placeholder="Nombre del Equipo">
         </div>
         <div class="form-group">
             <select class="form-control" type="text" name= "joggo" placeholder="Nombre del Juego">
@@ -62,16 +68,16 @@
                 <option value="2">Call of Duty®: Warzone</option>
                 <option value="3">Counter-Strike: Global Offensive</option>
             </select>
-        </div>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name= "name" placeholder="Nombre del Capitan">
+            </div>
         <div class="form-group">
-            <input class="form-control" type="number" name= "NumJugadores" placeholder="Cantidad de Jugadores">
+           <button class="Enviar" type="submit" >Guardar Cambios</button>
         </div>
-        <div class="form-group">
-            <button class="Enviar" type="submit" onclick="paco()">Crear Equipo</button>
-        </div>
-
+  
     </form>
-</div>
+  </div>
 <script>
 </script>
 </body>
