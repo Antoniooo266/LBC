@@ -50,9 +50,11 @@ module.exports = {ID, rango}
 
     connection.query('SELECT ID_Usuario ,Contraseña ,Rango FROM usuario WHERE Nickname = ?', [user], async (error, result) => {
         //Se realiza la consulta para saber si el usuario existe
-        if (result.length<0) {
+        if (result.length<0 || result=='') {
+
             res.redirect('../public/Login.html');
         } else {
+           console.log("holi:"+result)
            var resultado = await bcrypt.compare(pass, result[0].Contraseña);    //Revisa la contraseña con la de la BD 
            rango=result[0].Rango;
            ID=result[0].ID_Usuario;
