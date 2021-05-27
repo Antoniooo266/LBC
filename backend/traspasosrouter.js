@@ -13,7 +13,19 @@ router.get("/get", (req, res)=>{
         res.send("No hay resultados :(");
       }
     });
-}) 
+})
+
+router.get("/getu", (req, res)=>{
+  const sql = 'SELECT * FROM view_tabla_usuarios_equipo';
+  connection.query(sql, (error, results)=>{
+    if (error) throw error;
+    if(results.length > 0){
+      res.json(results);
+    }else{
+      res.send('No hay resultados :(')
+    }
+  })
+})
 
 router.post("/add", async (req, res) => {
     var usuario;
