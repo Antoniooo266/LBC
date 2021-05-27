@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Añadir Torneos</title>
-    <link href="./css/AddEquipo.css" type="text/css" rel="stylesheet">
+    <title>Modificar Equipos</title>
+    <link href="./css/ModificarEquipo.css" type="text/css" rel="stylesheet">
     <link rel="icon" type="image/png" href="Images/Logo.png" sizes="18x18">
 </head>
 <body>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <div class="area"></div>
 <nav class="main-menu">
     <ul>
@@ -43,19 +44,34 @@
 </nav>
 
 
+<section>
 
 
-<div id="wrapper">
-    <form action="/torneo/add" method="POST">
-
+    <!-- TABLE CONSTRUCTION-->
+    <table id='table'>
+      <!-- HEADING FORMATION -->
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Fecha</th>
+  
+      </tr>
+      <script src="js/ModificarEquipo.js">
+      </script>
+  
+  </section>
+  
+  <div id="wrapper">
+    <form action="/torneo/update" method="POST">
+  
         <figure>
             <img src="./Images/Logo.png" id="Logo" alt="Logo de LBC">
         </figure>
         <div class="form-group">
-            <input class="form-control" type="text" name= "name" placeholder="Nombre del Equipo">
-        </div>
+          <input class="form-control" type="text" name= "id" placeholder="ID del Equipo">
+      </div>
         <div class="form-group">
-            <input class="form-control" type="text" name= "Capitan" placeholder="Nombre del Capitan">
+            <input class="form-control" type="text" name= "name" placeholder="Nombre del Equipo">
         </div>
         <div class="form-group">
             <select class="form-control" type="text" name= "joggo" placeholder="Nombre del Juego">
@@ -63,16 +79,16 @@
                 <option value="2">Call of Duty®: Warzone</option>
                 <option value="3">Counter-Strike: Global Offensive</option>
             </select>
-        </div>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name= "name" placeholder="Nombre del Capitan">
+            </div>
         <div class="form-group">
-            <input class="form-control" type="number" name= "NumJugadores" placeholder="Cantidad de Jugadores">
+           <button class="Enviar" type="submit" >Guardar Cambios</button>
         </div>
-        <div class="form-group">
-            <button class="Enviar" type="submit" onclick="paco()">Crear Equipo</button>
-        </div>
-
+  
     </form>
-</div>
+  </div>
 <script>
 </script>
 </body>
