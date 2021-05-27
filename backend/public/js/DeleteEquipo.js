@@ -22,8 +22,8 @@ $(document).ready(function () {
                 student += '<td id='+id+' name="ID_Torneo">' + value.ID_Equipo + '</td>';
                 student += '<td>' + value.NombreEquipo + '</td>';
                 student += '<td>' + res + '</td>';
-                student += '<td><a href="ModificarTorneo.html"><button type="submit" style="background-color: #515468;" name="Editar" value="'+value.ID_Equipo+'"><img src="/public/Images/Edit.png" id="Trash2"></button></a>'
-                student += '<td><form action="/torneo/delete" method="post"><button type="submit" style="background-color: #515468;" name="Eliminar" value="'+value.ID_Equipo+'"><img src="/public/Images/Trash.png" id="Trash"></button></form></td>';
+                student += '<td><a href="ModificarEquipo.html"><button type="submit" style="background-color: #515468;" name="Editar" value="'+value.ID_Equipo+'"><img src="/public/Images/Edit.png" id="Trash2"></button></a>'
+                student += '<td><form action="/equipo/delete" method="post"><button type="submit" style="background-color: #515468;" name="Eliminar" value="'+value.ID_Equipo+'"><img src="/public/Images/Trash.png" id="Trash"></button></form></td>';
 
                 student += '</tr>';
                 id+=1;
