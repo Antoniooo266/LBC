@@ -42,9 +42,7 @@ router.post("/addresult", async (req, res) => {
         Fecha: req.body.Date,
       };
       var GanadorObj
-      console.log(req.body.ronda + " Ronda")
       if (req.body.ronda == 1) {
-        
         GanadorObj = {
           Ganador: Ganador,
           NombreTorneo: req.body.NombreTorneo
