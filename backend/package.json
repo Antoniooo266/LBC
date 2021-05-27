@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "dev": "nodemon app.js"
   },
   "keywords": [],
@@ -13,11 +13,13 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
+    "chai": "^4.3.4",
     "connect-timeout": "^1.9.0",
     "country-flags-svg": "^1.1.0",
     "fs": "*",
     "jsonwebtoken": "^8.5.1",
     "lsof": "^0.1.0",
+    "mocha": "^8.4.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "pool": "^0.4.1",
