@@ -5,7 +5,9 @@ const path = require('path');
 const { connect } = require('http2');
 const PORT = process.env.PORT || 3000;
 const passport =require('passport');
+
 //---- MIDLEWARE ----
+
 const usersrouter = require('./usersrouter.js');
 const torneosrouter = require('./torneosrouter.js')
 const resultadorouter=require('./resutadosrouter.js')
@@ -16,6 +18,7 @@ const app = express();
 //---- END MIDLEWARE ----
 
 //---- APP ----
+
 app.use(bodyParser.json());
 
 app.use(logger('dev'));
@@ -34,17 +37,16 @@ app.use('/equipo',equiporouter);
 
 app.use('/traspasos',traspasosrouter);
 
+//--- END APP ----
 
-//--- FIN APP ----
-
-//---- Uso de CCS ----
+//---- USO DE CCS ----
 
 app.get('*', (req, res)=> {
     const index = path.join(__dirname, '/', './css', 'index.html' );
     res.sendFile(index);
 });
 
-//---- Fin Uso de CSS ---
+//---- END USO DE CSS ---
 
 app.listen(PORT, ()=> console.log(`Server running on port ${PORT}`));
 
