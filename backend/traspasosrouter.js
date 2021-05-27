@@ -3,7 +3,7 @@ var express = require("express");
 var ID = require("./usersrouter.js")
 var router = express.Router();
 
-router.get("get", (req, res)=>{
+router.get("/get", (req, res)=>{
   const sql = "SELECT * FROM view_tabla_jugadores_equipo";
     connection.query(sql, (error, results) => {
       if (error) throw error;

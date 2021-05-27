@@ -9,9 +9,6 @@ $(document).ready(function () {
             // ITERATING THROUGH OBJECTS
             $.each(data, function (key, value) {
 
-                var Fecha = value.Fecha_Nac;
-                Fecha = Fecha.substr(0, 10);
-
                 if(value.NombreEquipo == null){
                     value.NombreEquipo = "Sin equipo"
                 }
@@ -24,8 +21,6 @@ $(document).ready(function () {
                 player += '<td>' + value.Correo + '</td>';
 
                 player += '<td>' +value.NombreEquipo + '</td>';
-
-                player += '<td>' + Fecha + '</td>';
 
                 player += '<td>' + value.NombreRango + '</td>';
                 player += '</tr>';

@@ -39,27 +39,14 @@ router.post('/add', (req, res) =>{
 
 //----END ADD EQUIPO----
 
-//----DELETE EQUIPO----
-
-router.post('/delete',(req,res)=>{ 
-  connection.query('DELETE FROM torneo WHERE ID_Equipo = ?',[req.body.Eliminar],function (err,solution){
-    if(err) throw err;
-    res.redirect('/public/Mensaje.html')
-  })
-});
-
-//----END DELETE EQUIPO----
-
 //----UPDATE EQUIPO----
 
 router.post('/update',(req,res)=>{
   const NewEquipo = {
     ID_Equipo: req.body.id,
-    NombreEquipo: req.body.name,
-    Fecha: req.body.date
+    NombreEquipo: req.body.equipo,
   }
-  console.log(NewTorneo);
-  connection.query('UPDATE torneo SET NombreTorneo = ?, Fecha = ? WHERE ID_Equipo = ?',[NewEquipo.NombreEquipo, NewEquipo.Fecha, NewEquipo.ID_Equipo],function (err,solution){
+  connection.query('UPDATE equipo SET NombreEquipo = ? WHERE ID_Equipo = ?',[NewEquipo.NombreEquipo, NewEquipo.ID_Equipo],function (err,solution){
     if(err) throw err;
     res.redirect('/public/Mensaje.html');
   })
