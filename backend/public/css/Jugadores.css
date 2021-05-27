@@ -1,7 +1,7 @@
 body{
     background: linear-gradient(
-            rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0.5)
+            rgba(0, 0, 0, 0),
+            rgba(0, 0, 0, 0)
     ),url(../Images/Fondo_Admin.jpg) no-repeat center center fixed;
     background-size: cover;
 }
