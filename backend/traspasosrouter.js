@@ -19,7 +19,15 @@ router.post("/add", async (req, res) => {
     var usuario;
     var equipo;
 
-    GetIdUser(req.body.Visitante, function (err, data) {
+    GetIdEquipo(req.body.equipo, function (err, data) {
+      if (err) {
+        console.log("ERROR : ", err);
+      } else {
+        equipo = data;
+      }
+    });
+
+    GetIdUser(req.body.Nickname, function (err, data) {
         if (err) {
           console.log("ERROR : ", err);
         } else {
@@ -29,10 +37,9 @@ router.post("/add", async (req, res) => {
   
     setTimeout(()=>{
       const AddEquipoObj = {
-        ID_Usuario: ID,
-        ID_Equipo: value.ID_Equipo
+        ID_Equipo: equipo,
+        ID_Usuario: usuario
       };
-      console.log(TraspasoObj);
       connection.query("INSERT INTO usuario_equipo SET ? ", AddEquipoObj, (error) => {
         if (error) {
           throw error;
@@ -96,7 +103,6 @@ router.post("/add", async (req, res) => {
         ID_Usuario: usuario,
         ID_Equipo: equipo
       };
-      console.log(TraspasoObj);
       connection.query("UPDATE usuario_equipo SET ID_Equipo = ? WHERE ID_Usuario = ? ", [TraspasoObj.ID_Equipo, TraspasoObj,ID_Usuario], (error) => {
         if (error) {
           throw error;
