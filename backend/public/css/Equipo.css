@@ -107,3 +107,12 @@ nav li ul{
 }
 
 nav li:hover ul{display:contents;}
+
+
+#Trash{
+    width: 2em;
+    float: right;
+    display: block;
+    margin-right: 0.2em;
+}
+
