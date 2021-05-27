@@ -2,6 +2,7 @@ const connection = require("./config");
 var express = require("express");
 var router = express.Router();
 
+//----GET EQUIPO----
 
 router.get("/get", (req, res) => {
     const sql = "SELECT * FROM equipo";
@@ -15,10 +16,17 @@ router.get("/get", (req, res) => {
     });
 });
 
+//----END GET EQUIPO----
+
+//----ADD EQUIPO----
+
+var today = new Date();
 router.post('/add', (req, res) =>{
   const EquipoObj = {
       NombreEquipo: req.body.name,
-      Fecha: req.body.date
+      Fecha: today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate(),
+      Victorias: 0,
+      Derrotas: 0,
   };
   connection.query('INSERT INTO equipo SET ?', EquipoObj, (error) =>{
     if (error){
@@ -29,12 +37,20 @@ router.post('/add', (req, res) =>{
   })
 });
 
+//----END ADD EQUIPO----
+
+//----DELETE EQUIPO----
+
 router.post('/delete',(req,res)=>{ 
   connection.query('DELETE FROM torneo WHERE ID_Equipo = ?',[req.body.Eliminar],function (err,solution){
     if(err) throw err;
     res.redirect('/public/Mensaje.html')
   })
 });
+
+//----END DELETE EQUIPO----
+
+//----UPDATE EQUIPO----
 
 router.post('/update',(req,res)=>{
   const NewEquipo = {
@@ -47,6 +63,8 @@ router.post('/update',(req,res)=>{
     if(err) throw err;
     res.redirect('/public/Mensaje.html');
   })
-  });
+});
+
+//----END UPDATE EQUIPO----
 
 module.exports = router;

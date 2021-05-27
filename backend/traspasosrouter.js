@@ -1,5 +1,6 @@
 const connection = require("./config");
 var express = require("express");
+var ID = require("./usersrouter.js")
 var router = express.Router();
 
 router.post("/add", async (req, res) => {
@@ -22,17 +23,17 @@ router.post("/add", async (req, res) => {
         }
       });
   
-    setTimeout(()=>{console.log(equipoLocal);
-      const TraspasoObj = {
-        Nickname: equipoVisitante,
-        NombreEquipo: dewdew
+    setTimeout(()=>{
+      const AddEquipoObj = {
+        ID_Usuario: ID,
+        ID_Equipo: equipo
       };
-      console.log(resultObj);
-      connection.query("INSERT INTO usuario_equipo SET ? ", resultObj, (error) => {
+      console.log(TraspasoObj);
+      connection.query("INSERT INTO usuario_equipo SET ? ", AddEquipoObj, (error) => {
         if (error) {
           throw error;
         } else {
-          connection.query("UPDATE torneo SET Ganador = ? WHERE NombreTorneo = ?", [GanadorObj.Ganador, GanadorObj.NombreTorneo], (error) => {
+          connection.query("UPDATE usuario SET Rango = 4 WHERE ID_Usuario = ?", [AddEquipoObj.ID_Usuario], (error) => {
             if (error) {
               throw error;
             }
@@ -65,6 +66,42 @@ router.post("/add", async (req, res) => {
       }
     );
   }
+
+  router.post("/update", (req,res)=>{
+    var usuario;
+    var equipo;
+  
+    GetIdEquipo(req.body.Visitante, function (err, data) {
+      if (err) {
+        console.log("ERROR : ", err);
+      } else {
+        equipo = data;
+      }
+    });
+
+    GetIdUser(req.body.Visitante, function (err, data) {
+        if (err) {
+          console.log("ERROR : ", err);
+        } else {
+          usuario = data;
+        }
+      });
+  
+    setTimeout(()=>{
+      const TraspasoObj = {
+        ID_Usuario: usuario,
+        ID_Equipo: equipo
+      };
+      console.log(TraspasoObj);
+      connection.query("UPDATE usuario_equipo SET ID_Equipo = ? WHERE ID_Usuario = ? ", [TraspasoObj.ID_Equipo, TraspasoObj,ID_Usuario], (error) => {
+        if (error) {
+          throw error;
+        } else {
+          res.redirect("/public/Mensaje.html");
+        }
+      });
+  }, 3000);
+  })
 
 module.exports = router;
 

@@ -2,17 +2,17 @@ const connection = require("./config");
 var express = require("express");
 var router = express.Router();
 
-//----Añadir Resultados----
+//----ADD RESULTS----
 
 router.post("/addresult", async (req, res) => {
     var equipoLocal;
     var equipoVisitante;
   
-    GetIdEquipo(req.body.Visitante, function (err, data) {
+    GetIdEquipo(req.body.Visitante, function (err, data) { //Realiza la funcion con la req del formulario
       if (err) {
         console.log("ERROR : ", err);
       } else {
-        equipoVisitante = data;
+        equipoVisitante = data; //Obtiene el dato y lo mete en la variable
       }
     });
   
@@ -42,15 +42,13 @@ router.post("/addresult", async (req, res) => {
         Fecha: req.body.Date,
       };
       var GanadorObj
-      if (req.body.ronda == 1) {
+      if (req.body.ronda == 1) { //Si en el formulario selecciona la Final ejecuta el GanadorObj
         GanadorObj = {
           Ganador: Ganador,
           NombreTorneo: req.body.NombreTorneo
         }
       }
-      
       console.log(resultObj);
-      //console.log(GanadorObj);
       connection.query("INSERT INTO partido SET ? ", resultObj, (error) => {
         if (error) {
           throw error;
@@ -68,15 +66,17 @@ router.post("/addresult", async (req, res) => {
     
   });
   
-  function GetIdEquipo(nombre, callback) {
+  function GetIdEquipo(nombre, callback) { //Funcion que realiza una consulta para ontener el ID_Equipo
     connection.query(
       "SELECT ID_Equipo FROM equipo WHERE NombreEquipo = ?",
       [nombre],
       function (err, result) {
-        if (err) callback(err, null);
-        else callback(null, result[0].ID_Equipo);
+        if (err) callback(err, null); 
+        else callback(null, result[0].ID_Equipo); //Devuelve solo el numero del ID_Equipo
       }
     );
   }
-//---- Fin Añadir Resultado----
+
+//----END ADD RESULTS----
+
   module.exports = router;
