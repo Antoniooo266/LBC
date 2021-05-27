@@ -139,5 +139,20 @@ module.exports = {ID, rango}
         });
         });
 
+    //----Banear Usuario----
+
+        router.post('/ban',(req,res)=>{
+            const objban={
+                //ID_Usuario=res.body.//nombre id
+                //Fecha_DesBan= new Date
+            }
+            connection.query('INSERT INTO baneo ?',objban,(error,res)=>{
+                if(error)throw error;
+                res.redirect('/public/Mensaje.html');
+            })
+        })
+
+    //----Fin Banear Usuario----
+
 module.exports = router;
 
