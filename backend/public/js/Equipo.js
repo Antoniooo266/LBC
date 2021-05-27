@@ -33,6 +33,8 @@ $(document).ready(function () {
 
                 student += '<td>' + n + '%</td>';
 
+                student += '<td><form action="/traspasos/add" method="post"><button type="submit" style="background-color: #515468;" name="Eliminar" value="'+value.ID_Equipo+'"><img src="/public/Images/Inscribir.png" id="Trash"></button></form></td>';
+
                 student += '</tr>';
             });
 

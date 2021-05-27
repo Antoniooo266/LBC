@@ -3,17 +3,21 @@ var express = require("express");
 var ID = require("./usersrouter.js")
 var router = express.Router();
 
+router.get("get", (req, res)=>{
+  const sql = "SELECT * FROM view_tabla_jugadores_equipo";
+    connection.query(sql, (error, results) => {
+      if (error) throw error;
+      if (results.length > 0) {
+        res.json(results);
+      } else {
+        res.send("No hay resultados :(");
+      }
+    });
+}) 
+
 router.post("/add", async (req, res) => {
     var usuario;
     var equipo;
-  
-    GetIdEquipo(req.body.Visitante, function (err, data) {
-      if (err) {
-        console.log("ERROR : ", err);
-      } else {
-        equipo = data;
-      }
-    });
 
     GetIdUser(req.body.Visitante, function (err, data) {
         if (err) {
@@ -26,7 +30,7 @@ router.post("/add", async (req, res) => {
     setTimeout(()=>{
       const AddEquipoObj = {
         ID_Usuario: ID,
-        ID_Equipo: equipo
+        ID_Equipo: value.ID_Equipo
       };
       console.log(TraspasoObj);
       connection.query("INSERT INTO usuario_equipo SET ? ", AddEquipoObj, (error) => {
