@@ -13,12 +13,14 @@ router.get("/get", (req, res) => {
         res.send("No hay resultados :(");
       }
     });
-});
-
+  });
+  var today = new Date();
 router.post('/add', (req, res) =>{
   const EquipoObj = {
       NombreEquipo: req.body.name,
-      Fecha: req.body.date
+      Fecha: today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate(),
+      Victorias: 0,
+      Derrotas: 0,
   };
   connection.query('INSERT INTO equipo SET ?', EquipoObj, (error) =>{
     if (error){
