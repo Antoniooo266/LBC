@@ -8,25 +8,26 @@ var router = express.Router();
 var rango;
 var ID;
 module.exports = {ID, rango}
-    //----ADD USER----
-    //---Funcion que crea un Objeto User y lo añade en la Base de Datos
 
+    //----ADD USER----
+
+    //---Funcion que crea un Objeto User y lo añade en la Base de Datos
     router.post('/add', async (req, res) =>{
-    const hashedPassword = await encriptar(req.body.password);  //se encripta la contraseña mediante el bcrypt
-    const userObj = {       //se almacenan todos los datos introducidos en los input de la pagina Registar
-        Nickname: req.body.name,//recoge el nombre del usuario
-        Contraseña: hashedPassword,
-        Fecha_Nac: req.body.date,//recoge la fecha de nacimiento del usuario
-        Correo: req.body.email,//recoge el email del usuario
-        País: req.body.paistext,//almacena el pais del usuario
-        Rango: 2// se le introduce el rango base en este caso usuario
+    const hashedPassword = await encriptar(req.body.password);  //Se encripta la contraseña mediante el bcrypt
+    const userObj = {       //Se almacenan todos los datos introducidos en los input de la pagina Registar
+        Nickname: req.body.name,    //Recoge el nombre del usuario
+        Contraseña: hashedPassword, //Recoge la contraseña encriptada
+        Fecha_Nac: req.body.date,   //Recoge la fecha de nacimiento del usuario
+        Correo: req.body.email, //Recoge el email del usuario
+        País: req.body.paistext,    //Almacena el pais del usuario
+        Rango: 2    //Se le introduce el rango base en este caso usuario
     }
     console.log(userObj);
-    connection.query('INSERT INTO usuario SET ?', userObj, error=>{ //introduce los datos a la BD
+    connection.query('INSERT INTO usuario SET ?', userObj, error=>{ //Introduce los datos a la BD
         if(error){
             throw error;
         }else{
-            res.redirect('/public/Home.html')   //redirige a la pagina principal
+            res.redirect('/public/Home.html')   //Redirige a la pagina principal
         }
         connection.query('SELECT ID_Usuario FROM usuario WHERE Nickname = ?',req.body.name,(err,res)=>{
             if (err) {throw err;   
@@ -40,6 +41,7 @@ module.exports = {ID, rango}
     //---- END ADD USER----
 
     //----LOGGING USER----
+
     //Posible refactor en este metodo(separar toda la query a una funcion)
 
     router.post('/logging', async(req,res)=>{
@@ -47,24 +49,24 @@ module.exports = {ID, rango}
     const user=req.body.firstname
 
     connection.query('SELECT ID_Usuario ,Contraseña ,Rango FROM usuario WHERE Nickname = ?', [user], async (error, result) => {
-        //se realiza la consulta para saber si el usuario existe
+        //Se realiza la consulta para saber si el usuario existe
         if (result.length<0) {
             res.redirect('../public/Login.html');
         } else {
-           var resultado = await bcrypt.compare(pass, result[0].Contraseña);    //revisa la contraseña con la de la BD 
+           var resultado = await bcrypt.compare(pass, result[0].Contraseña);    //Revisa la contraseña con la de la BD 
            rango=result[0].Rango;
            ID=result[0].ID_Usuario;
            console.log(ID);
            console.log(resultado);
           if (resultado==true) {
               if (rango==1) {
-                  //si el usuario es admin se le redirige a la pagina de admin
+                  //Si el usuario es admin se le redirige a la pagina de admin
                   res.redirect('../public/Admin.html')
               }else{
-            res.redirect('../public/Home.html')   //todo bien entra a HOME
+            res.redirect('../public/Home.html')   //Todo bien entra a HOME
               }
           }else{
-            res.redirect('../public/Login.html')  //algun dato mal vuelve al Login
+            res.redirect('../public/Login.html')  //Algun dato mal vuelve al Login
           }
         }
       })  
@@ -75,11 +77,11 @@ module.exports = {ID, rango}
     //----GET USER----
 
     router.get('/get', (req, res) =>{
-    const sql = 'SELECT * FROM view_tabla_usuario';    //muestra todos los datos de la taba usuario
+    const sql = 'SELECT * FROM view_tabla_usuario';    //Muestra todos los datos de la taba usuario
     connection.query(sql, (error, results)=> {
         if(error) throw error;
         if(results.length > 0){
-            res.json(results);  //devuelve los resultados como json
+            res.json(results);  //Devuelve los resultados como json
         }else{
             res.send('No hay resultados :(')
         }
@@ -94,7 +96,7 @@ module.exports = {ID, rango}
         connection.query('SELECT * FROM view_tabla_perfil WHERE ID_Usuario = ?',[ID], (error, results)=> {
             if(error) throw error;
             if(results.length > 0){
-                res.json(results);  //devuelve los resultados como json
+                res.json(results);  //Devuelve los resultados como json
             }else{
                 res.send('No hay resultados :(')
             }
@@ -102,6 +104,7 @@ module.exports = {ID, rango}
     });
 
     //----END GET USER ID----
+
     //----PRIVILEGIOS USUARIO----
     
     router.post("/updatepriv", (req, res) => {
@@ -128,18 +131,20 @@ module.exports = {ID, rango}
     //----GET PERFIL USER----
 
     router.get('/getperfil', (req, res) =>{
-        const sql = 'SELECT * FROM view_tabla_perfil';    //muestra todos los datos de la taba usuario
+        const sql = 'SELECT * FROM view_tabla_perfil';    //Muestra todos los datos de la taba usuario
         connection.query(sql, (error, results)=> {
             if(error) throw error;
             if(results.length > 0){
-                res.json(results);  //devuelve los resultados como json
+                res.json(results);  //Devuelve los resultados como json
             }else{
                 res.send('No hay resultados :(')
             }
         });
         });
+    
+    //----END PERFIL USER----
 
-    //----Banear Usuario----
+    //----BAN USER----
 
         router.post('/ban',(req,res)=>{
             const objban={
@@ -152,7 +157,7 @@ module.exports = {ID, rango}
             })
         })
 
-    //----Fin Banear Usuario----
+    //----END BAN USER----
 
 module.exports = router;
 

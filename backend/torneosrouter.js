@@ -3,20 +3,20 @@ var express = require("express");
 var router = express.Router();
 
 
-//---- Añadir Torneo----
+//---- ADD TORNEO----
 
 //Recoge los datos de la pagina AddTorneo.html y los almacena en un objeto despues de eso se envian a la base de datos donde son almacenados y redirige a Mensaje.html para confirmar de que se ha enviado correctamente 
 
 router.post("/add", (req, res) => {
 
   const torneoObj = {
-    NombreTorneo: req.body.name,//nombre
-    ID_Juego: req.body.joggo,//id_juego
-    Cantidad: req.body.teams,//cantidad de jugadores
-    Fecha: req.body.fecha,//fecha del torneo
-    Premio: req.body.premio,//premio del torneo
+    NombreTorneo: req.body.name,  //Nombre
+    ID_Juego: req.body.joggo, //ID_Juego
+    Cantidad: req.body.teams, //Cantidad de jugadores
+    Fecha: req.body.fecha,  //Fecha del torneo
+    Premio: req.body.premio,  //Premio del torneo
   };
-  connection.query('INSERT INTO torneo SET ?', torneoObj, (error) => {// es la consulta donde se inserta los datos
+  connection.query('INSERT INTO torneo SET ?', torneoObj, (error) => {  //Es la consulta donde se inserta los datos
     if (error) {
       throw error;
     } else {
@@ -25,7 +25,9 @@ router.post("/add", (req, res) => {
   });
 });
 
-//----Get Torneo----
+//----END ADD TORNEO----
+
+//----GET TORNEO----
 //Muestra todos los torneos que hay en la base de datos en un json
 
 router.get("/get", (req, res) => {
@@ -40,9 +42,10 @@ router.get("/get", (req, res) => {
   });
 });
 
-//---- Fin Get Torneo ----
+//----END GET TORNEO----
 
-//---- Borrar Torneo ----
+//----DELETE TORNEO----
+
 //Permite borrar un torneo seleccionado mediante el id (falta comprobarlo) y redirige a Mensaje.html para dar feedback
 
 router.post('/delete',(req,res)=>{ 
@@ -52,11 +55,11 @@ connection.query('DELETE FROM torneo WHERE ID_Torneo = ?',[req.body.Eliminar],fu
 })
 });
 
-//---- Fin Borrar Torneo ----
+//----END DELETE TORNEO----
 
-//---- Modificar Torneo ----
+//----UPDATE TORNEO----
+
 //Recoge los datos introducidos en los campos de texto de la pagina Addtorneo.html y modifica los datos del torneo previamente seleccionado (falta testeo)
-
 router.post('/update',(req,res)=>{
   const NewTorneo = {
     ID_Torneo: req.body.id,
@@ -76,6 +79,6 @@ router.post('/update',(req,res)=>{
   });
 
 
-//----Fin Modificar Torneo----
+//----END UPDATE TORNEO----
 
 module.exports = router;
