@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     // FETCHING DATA FROM JSON FILE
-    $.getJSON("http://localhost:3000/traspasos/get",
+    $.getJSON("http://localhost:3000/traspasos/getu",
         function (data) {
             let student = '';
             
@@ -24,4 +24,5 @@ $(document).ready(function () {
             //INSERTING ROWS INTO TABLE
             $('#table').append(student);
         });
+
     });

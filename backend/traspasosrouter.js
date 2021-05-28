@@ -13,7 +13,19 @@ router.get("/get", (req, res)=>{
         res.send("No hay resultados :(");
       }
     });
-}) 
+})
+
+router.get("/getu", (req, res)=>{
+  const sql = 'SELECT * FROM view_tabla_usuarios_equipo';
+  connection.query(sql, (error, results)=>{
+    if (error) throw error;
+    if(results.length > 0){
+      res.json(results);
+    }else{
+      res.send('No hay resultados :(')
+    }
+  })
+})
 
 router.post("/add", async (req, res) => {
     var usuario;
@@ -54,7 +66,7 @@ router.post("/add", async (req, res) => {
       });
   }, 3000);
     
-  });
+});
   
   function GetIdEquipo(nombre, callback) {
     connection.query(
@@ -82,7 +94,7 @@ router.post("/add", async (req, res) => {
     var usuario;
     var equipo;
   
-    GetIdEquipo(req.body.Visitante, function (err, data) {
+    GetIdEquipo(req.body.equipo, function (err, data) {
       if (err) {
         console.log("ERROR : ", err);
       } else {
@@ -90,7 +102,7 @@ router.post("/add", async (req, res) => {
       }
     });
 
-    GetIdUser(req.body.Visitante, function (err, data) {
+    GetIdUser(req.body.Nickname, function (err, data) {
         if (err) {
           console.log("ERROR : ", err);
         } else {
@@ -103,14 +115,15 @@ router.post("/add", async (req, res) => {
         ID_Usuario: usuario,
         ID_Equipo: equipo
       };
-      connection.query("UPDATE usuario_equipo SET ID_Equipo = ? WHERE ID_Usuario = ? ", [TraspasoObj.ID_Equipo, TraspasoObj,ID_Usuario], (error) => {
+      console.log(TraspasoObj);
+      connection.query("UPDATE usuario_equipo SET ID_Equipo = ? WHERE ID_Usuario = ? ", [TraspasoObj.ID_Equipo, TraspasoObj.ID_Usuario], (error) => {
         if (error) {
           throw error;
         } else {
           res.redirect("/public/Mensaje.html");
         }
       });
-  }, 3000);
+  }, 5000);
   })
 
 module.exports = router;
