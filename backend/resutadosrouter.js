@@ -2,9 +2,17 @@ const connection = require("./config");
 var express = require("express");
 var router = express.Router();
 
+<<<<<<< HEAD
 router.get('/get/:id', (req, res)=>{
   //const sql = "SELECT * FROM view_partido_torneo WHERE ID_Torneo = ?",[req.params.id];
     connection.query("SELECT * FROM view_partido_torneo WHERE ID_Torneo = ?",[req.params.id], (error, results) => {
+=======
+//----GET RESULTS----
+
+router.get('/get', (req, res)=>{
+  const sql = "SELECT * FROM view_partido_torneo";
+    connection.query(sql, (error, results) => {
+>>>>>>> 68f6123619f3fdb47fc4694fc5a7fe3eca935fc6
       if (error) throw error;
       if (results.length > 0) {
         res.json(results);
@@ -13,6 +21,8 @@ router.get('/get/:id', (req, res)=>{
       }
     });
 })
+
+//----END RESULTS----
 
 //----ADD RESULTS----
 
@@ -90,7 +100,9 @@ router.post("/addresult", async (req, res) => {
   }, 3000);
     
   });
-  
+
+  //----END ADD RESULTS----
+
   function GetIdEquipo(nombre, callback) { //Funcion que realiza una consulta para ontener el ID_Equipo
     connection.query(
       "SELECT ID_Equipo FROM equipo WHERE NombreEquipo = ?",
@@ -112,7 +124,5 @@ router.post("/addresult", async (req, res) => {
       }
     );
   }
-
-//----END ADD RESULTS----
 
   module.exports = router;
