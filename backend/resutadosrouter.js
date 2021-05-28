@@ -31,7 +31,7 @@ router.post("/addresult", async (req, res) => {
       } else {
         equipoLocal = data;
       }
-    });ç
+    });
 
     if(req.body.ronda == 1){
       GetIdEquipo(req.body.Winner, function (err, data) {
@@ -47,14 +47,13 @@ router.post("/addresult", async (req, res) => {
       const resultObj = {
         ID_Visitante: equipoVisitante,
         ID_Local: equipoLocal,
+        ID_Torneo: torneo,
+        ID_Ronda: req.body.ronda,
         Resultado_Local: req.body.ResultLocal,
         Resultado_Visitante: req.body.ResultVisitante,
         Fecha: req.body.Date,
       };
-      const partidoObj = {
-        ID_Torneo: torneo,
-        ID_Ronda: req.body.ronda
-      }
+
       var GanadorObj
       if (req.body.ronda == 1) { //Si en el formulario selecciona la Final ejecuta el GanadorObj
         GanadorObj = {
@@ -66,10 +65,6 @@ router.post("/addresult", async (req, res) => {
       connection.query("INSERT INTO partido SET ? ", resultObj, (error) => {
         if (error) {
           throw error;
-        }else{
-          connection.query('INSERT INTO partido_torneo SET ?', partidoObj, (error)=>{
-            if(error) throw error;
-          })
         }
         if (req.body.ronda == 1) {
           connection.query("UPDATE torneo SET Ganador = ? WHERE NombreTorneo = ?", [GanadorObj.Ganador, GanadorObj.NombreTorneo], (error) => {
@@ -78,6 +73,7 @@ router.post("/addresult", async (req, res) => {
             }
           });
         }
+        res.redirect('/public/Mensaje.html')
       });
   }, 3000);
     
