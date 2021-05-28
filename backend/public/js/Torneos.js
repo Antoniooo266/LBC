@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
 
     // FETCHING DATA FROM JSON FILE
@@ -17,7 +18,8 @@ $(document).ready(function () {
                 if(value.NombreEquipo == null){
                     value.NombreEquipo = "No finalizado"
                 }
-                var id
+                var id= 1;
+                
                 //CONSTRUCTION OF ROWS HAVING
                 // DATA FROM JSON OBJECT
                 student += '<tr>';
@@ -29,9 +31,11 @@ $(document).ready(function () {
 
                 student += '<td><a href="VerTorneo.html">' +value.NombreEquipo + '</td></a>';
                 student += '</tr>';
+                id += 1;
             });
 
             //INSERTING ROWS INTO TABLE
             $('#table').append(student);
         });
 });
+

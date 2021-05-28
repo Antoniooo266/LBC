@@ -1,5 +1,7 @@
+use lbc;
 create definer = root@localhost view view_partido_torneo as
 select `t`.`NombreTorneo`                    AS `NombreTorneo`,
+`lbc`.`partido`.`ID_Torneo` AS `ID_Torneo`, 
        `e`.`NombreEquipo`                    AS `NombreLocal`,
        `e2`.`NombreEquipo`                   AS `NombreVisitante`,
        `lbc`.`partido`.`Fecha`               AS `Fecha`,
