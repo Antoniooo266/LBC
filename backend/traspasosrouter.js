@@ -3,6 +3,8 @@ var express = require("express");
 var ID = require("./usersrouter.js")
 var router = express.Router();
 
+//----GET JUGADORES DE UN EQUIPO----
+
 router.get("/get", (req, res)=>{
   const sql = "SELECT * FROM view_tabla_jugadores_equipo";
     connection.query(sql, (error, results) => {
@@ -15,6 +17,10 @@ router.get("/get", (req, res)=>{
     });
 })
 
+//----END JUGADORES DE UN EQUIPO----
+
+//----GET USUARIOS SIN EQUIPO----
+
 router.get("/getu", (req, res)=>{
   const sql = 'SELECT * FROM view_tabla_usuarios_equipo';
   connection.query(sql, (error, results)=>{
@@ -26,6 +32,10 @@ router.get("/getu", (req, res)=>{
     }
   })
 })
+
+//----END USUARIOS SIN EQUIPO----
+
+//----ADD USUARIO A UN EQUIPO----
 
 router.post("/add", async (req, res) => {
     var usuario;
@@ -67,28 +77,10 @@ router.post("/add", async (req, res) => {
   }, 3000);
     
 });
-  
-  function GetIdEquipo(nombre, callback) {
-    connection.query(
-      "SELECT ID_Equipo FROM equipo WHERE NombreEquipo = ?",
-      [nombre],
-      function (err, result) {
-        if (err) callback(err, null);
-        else callback(null, result[0].ID_Equipo);
-      }
-    );
-  }
 
-  function GetIdUser(nombre, callback) {
-    connection.query(
-      "SELECT ID_Usuario FROM usuario WHERE Nickname = ?",
-      [nombre],
-      function (err, result) {
-        if (err) callback(err, null);
-        else callback(null, result[0].ID_Usuario);
-      }
-    );
-  }
+//----END ADD USER A UN EQUIPO----
+  
+//----UPDATE TRASPASOS----
 
   router.post("/update", (req,res)=>{
     var usuario;
@@ -125,6 +117,30 @@ router.post("/add", async (req, res) => {
       });
   }, 5000);
   })
+
+//----END UPDATE TRASPASOS
+
+  function GetIdEquipo(nombre, callback) {
+    connection.query(
+      "SELECT ID_Equipo FROM equipo WHERE NombreEquipo = ?",
+      [nombre],
+      function (err, result) {
+        if (err) callback(err, null);
+        else callback(null, result[0].ID_Equipo);
+      }
+    );
+  }
+
+  function GetIdUser(nombre, callback) {
+    connection.query(
+      "SELECT ID_Usuario FROM usuario WHERE Nickname = ?",
+      [nombre],
+      function (err, result) {
+        if (err) callback(err, null);
+        else callback(null, result[0].ID_Usuario);
+      }
+    );
+  }
 
 module.exports = router;
 
