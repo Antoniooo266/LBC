@@ -19,15 +19,7 @@ body{
 
 
 }
-#Menu {
-    display: block;
-    font: 1.2em Tahoma, Sans-serif;
-    text-align: center;
-    margin-right: 6em;
-    float: right;
 
-
-}
 
 
 nav ul {
@@ -77,16 +69,20 @@ td {
     border: none;
     padding: 2em;
 }
+a{
+    text-decoration: none;
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 
 th, td {
     font-weight: bold;
     border: 1px solid black;
-    padding: 10px;
     border: none;
     text-align: center;
     padding: 1.6em;
-    padding-left: 3em;
-    padding-right: 3em;
+    padding-left: 2em;
+    padding-right: 2em;
 }
 
 td {
@@ -111,3 +107,12 @@ nav li ul{
 nav li:hover ul{display:contents;}
 
 
+#Menu  {
+    display: block;
+    font: 1.2em Tahoma, Sans-serif;
+    text-align: center;
+    margin-right: 6em;
+    float: right;
+
+
+}
