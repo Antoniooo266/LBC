@@ -16,7 +16,7 @@ router.post("/add", (req, res) => {
     Fecha: req.body.fecha,  //Fecha del torneo
     Premio: req.body.premio,  //Premio del torneo
   };
-  connection.query('INSERT INTO torneo SET ?', torneoObj, (error) => {  //Es la consulta donde se inserta los datos
+  connection.query('INSERT INTO torneo SET ?', torneoObj, (error) => {  //Se insertan los datos para crear el torneo
     if (error) {
       throw error;
     } else {
@@ -28,14 +28,14 @@ router.post("/add", (req, res) => {
 //----END ADD TORNEO----
 
 //----GET TORNEO----
-//Muestra todos los torneos que hay en la base de datos en un json
+//Muestra todos los torneos que hay en la base de datos 
 
 router.get("/get", (req, res) => {
   const sql = 'SELECT * FROM view_tabla_torneo';
   connection.query(sql, (error, results) => {
     if (error) throw error;
     if (results.length > 0) {
-      res.json(results);
+      res.json(results);//devuelve los torneos en formato json
     } else {
       res.send("No hay resultados :(");
     }
@@ -61,21 +61,28 @@ connection.query('DELETE FROM torneo WHERE ID_Torneo = ?',[req.body.Eliminar],fu
 
 //Recoge los datos introducidos en los campos de texto de la pagina Addtorneo.html y modifica los datos del torneo previamente seleccionado (falta testeo)
 router.post('/update',(req,res)=>{
+  connection.query('SELECT * FROM torneo WHERE ID_Torneo= ?',[req.body.id],(errur,sol)=>{
+    if (errur) throw errur;
+    if(sol.length<0 || sol==''){
+      res.redirect('/public/ModificarTorneo.html')
+    }
+    else{
   const NewTorneo = {
-    ID_Torneo: req.body.id,
+    ID_Torneo: req.body.id,//ID del torneo
     NombreTorneo: req.body.name,//nombre
-    ID_Juego: req.body.joggo,//id_juego
+    ID_Juego: req.body.joggo,//id del juegp
     Cantidad: req.body.teams,//cantidad de jugadores
     Fecha: req.body.fecha,//fecha del torneo
     Premio: req.body.premio,//premio del torneo
   }
-  console.log(NewTorneo);
   connection.query('UPDATE torneo SET NombreTorneo = ?, ID_Juego = ?, Cantidad = ?, Fecha = ?, Premio = ? WHERE ID_Torneo = ?',[NewTorneo.NombreTorneo, NewTorneo.ID_Juego, NewTorneo.Cantidad, NewTorneo.Fecha, NewTorneo.Premio, NewTorneo.ID_Torneo
-    
+    //se actualiza los datos de un torneo
   ],function (err,solution){
     if(err) throw err;
     res.redirect('/public/Mensaje.html');
   })
+}
+})
   });
 
 

@@ -51,15 +51,14 @@ module.exports = {ID, rango}
     connection.query('SELECT ID_Usuario ,Contraseña ,Rango FROM usuario WHERE Nickname = ?', [user], async (error, result) => {
         //Se realiza la consulta para saber si el usuario existe
         if (result.length<0 || result=='') {
-
+        //si alguno de los campos es incorrecto se le devuelve de nuevo a la pagina de loging
             res.redirect('../public/Login.html');
         } else {
-           console.log("holi:"+result)
+          
            var resultado = await bcrypt.compare(pass, result[0].Contraseña);    //Revisa la contraseña con la de la BD 
-           rango=result[0].Rango;
-           ID=result[0].ID_Usuario;
-           console.log(ID);
-           console.log(resultado);
+           rango=result[0].Rango; //se guarda el rango del usuario para moverse por la pagina
+           ID=result[0].ID_Usuario; //se guarda el id del usuario para poder saber quien es
+           
           if (resultado==true) {
               if (rango==1) {
                   //Si el usuario es admin se le redirige a la pagina de admin
@@ -110,22 +109,29 @@ module.exports = {ID, rango}
     //----PRIVILEGIOS USUARIO----
     
     router.post("/updatepriv", (req, res) => {
+        //se crea un objeto donde se guarda el rango del usuario y el nombre del usuario
         const RangoObj = {
           Rango: req.body.Rango,
           Nickname: req.body.Name
         };
-        console.log(RangoObj);
+        connection.query("Select * FROM usuario Where Nickname = ?",[RangoObj.Nickname],(err,result)=>{
+            if(err)throw err;
+            if(result.length<0 || result==''){
+                //si introduce un usuairo que no existe se le vuelve a la misma pagina
+                res.redirect('/public/Jugadores.html')
+            }else{
+        //si el usuario existe se le actualizan los datos
         connection.query("UPDATE usuario SET Rango = ? WHERE Nickname = ?", [RangoObj.Rango, RangoObj.Nickname], (error) => {
             if (error) {
               throw error;
             }else{
-                if(RangoObj.Nickname == ''){
-                    res.redirect("/public/Jugadores.html")
-                }else{
                     res.redirect("/public/Mensaje.html");
+                    //si todo ha salido correctamente se le lleva a mensaje.html
                 }
             }
-          });
+        );
+        }
+        });
     });
 
     //----END PRIVILEGIOS USUARIO----
@@ -133,7 +139,7 @@ module.exports = {ID, rango}
     //----GET PERFIL USER----
 
     router.get('/getperfil', (req, res) =>{
-        const sql = 'SELECT * FROM view_tabla_perfil';    //Muestra todos los datos de la taba usuario
+        const sql = 'SELECT * FROM view_tabla_perfil';    //Muestra todos los datos de la vista usuario
         connection.query(sql, (error, results)=> {
             if(error) throw error;
             if(results.length > 0){
@@ -146,20 +152,6 @@ module.exports = {ID, rango}
     
     //----END PERFIL USER----
 
-    //----BAN USER----
-
-        router.post('/ban',(req,res)=>{
-            const objban={
-                //ID_Usuario=res.body.//nombre id
-                //Fecha_DesBan= new Date
-            }
-            connection.query('INSERT INTO baneo ?',objban,(error,res)=>{
-                if(error)throw error;
-                res.redirect('/public/Mensaje.html');
-            })
-        })
-
-    //----END BAN USER----
 
 module.exports = router;
 
