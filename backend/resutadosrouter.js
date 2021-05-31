@@ -2,17 +2,10 @@ const connection = require("./config");
 var express = require("express");
 var router = express.Router();
 
-<<<<<<< HEAD
+
 router.get('/get/:id', (req, res)=>{
   //const sql = "SELECT * FROM view_partido_torneo WHERE ID_Torneo = ?",[req.params.id];
     connection.query("SELECT * FROM view_partido_torneo WHERE ID_Torneo = ?",[req.params.id], (error, results) => {
-=======
-//----GET RESULTS----
-
-router.get('/get', (req, res)=>{
-  const sql = "SELECT * FROM view_partido_torneo";
-    connection.query(sql, (error, results) => {
->>>>>>> 68f6123619f3fdb47fc4694fc5a7fe3eca935fc6
       if (error) throw error;
       if (results.length > 0) {
         res.json(results);
