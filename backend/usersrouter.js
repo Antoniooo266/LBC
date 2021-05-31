@@ -117,21 +117,19 @@ module.exports = {ID, rango}
         connection.query("Select * FROM usuario Where Nickname = ?",[RangoObj.Nickname],(err,result)=>{
             if(err)throw err;
             if(result.length<0 || result==''){
+                //si introduce un usuairo que no existe se le vuelve a la misma pagina
                 res.redirect('/public/Jugadores.html')
             }else{
-        
+        //si el usuario existe se le actualizan los datos
         connection.query("UPDATE usuario SET Rango = ? WHERE Nickname = ?", [RangoObj.Rango, RangoObj.Nickname], (error) => {
             if (error) {
               throw error;
             }else{
-                if(RangoObj.Nickname == ''){
-                    //si el nombre del usuario esta vacio se le redirige a la misma pagina web
-                    res.redirect("/public/Jugadores.html")
-                }else{
-                    res.redirect("/public/Mensaje.html");//si todo ha salido correctamente se le lleva a mensaje.html
+                    res.redirect("/public/Mensaje.html");
+                    //si todo ha salido correctamente se le lleva a mensaje.html
                 }
             }
-          });
+        );
         }
         });
     });
@@ -141,7 +139,7 @@ module.exports = {ID, rango}
     //----GET PERFIL USER----
 
     router.get('/getperfil', (req, res) =>{
-        const sql = 'SELECT * FROM view_tabla_perfil';    //Muestra todos los datos de la taba usuario
+        const sql = 'SELECT * FROM view_tabla_perfil';    //Muestra todos los datos de la vista usuario
         connection.query(sql, (error, results)=> {
             if(error) throw error;
             if(results.length > 0){
@@ -154,20 +152,6 @@ module.exports = {ID, rango}
     
     //----END PERFIL USER----
 
-    //----BAN USER----
-
-        router.post('/ban',(req,res)=>{
-            const objban={
-                //ID_Usuario=res.body.//nombre id
-                //Fecha_DesBan= new Date
-            }
-            connection.query('INSERT INTO baneo ?',objban,(error,res)=>{
-                if(error)throw error;
-                res.redirect('/public/Mensaje.html');
-            })
-        })
-
-    //----END BAN USER----
 
 module.exports = router;
 
