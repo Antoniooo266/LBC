@@ -18,20 +18,18 @@ $(document).ready(function () {
                 if(value.NombreEquipo == null){
                     value.NombreEquipo = "No finalizado"
                 }
-                var id= 1;
                 
                 //CONSTRUCTION OF ROWS HAVING
                 // DATA FROM JSON OBJECT
                 student += '<tr>';
-                student += '<td><a href="VerTorneo.html" value="'+id+'">' + value.NombreTorneo + '</td></a>';
+                student += '<td><form action="/resultado/pacopartidos" method="post"><button type="submit" name="Torneo" value="'+value.ID_Torneo+'">' + value.NombreTorneo + '</td></form></button>';
 
-                student += '<td><a href="VerTorneo.html">' + Fecha + '</td></a>';
+                student += '<td><form action="/resultado/pacopartidos" method="post"><button type="submit" name="Torneo" value="'+value.ID_Torneo+'">' + Fecha + '</td></form></button>';
 
-                student += '<td><a href="VerTorneo.html">' + value.Premio + '</td></a>';
+                student += '<td><form action="/resultado/pacopartidos" method="post"><button type="submit" name="Torneo" value="'+value.ID_Torneo+'">' + value.Premio + '</td></form></button>';
 
-                student += '<td><a href="VerTorneo.html">' +value.NombreEquipo + '</td></a>';
+                student += '<td><form action="/resultado/pacopartidos" method="post"><button type="submit" name="Torneo" value="'+value.ID_Torneo+'">' +value.NombreEquipo + '</td></form></button>';
                 student += '</tr>';
-                id += 1;
             });
 
             //INSERTING ROWS INTO TABLE

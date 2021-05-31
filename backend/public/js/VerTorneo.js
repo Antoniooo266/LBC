@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     // FETCHING DATA FROM JSON FILE
-    $.getJSON("http://localhost:3000/resultado/get/2",
+    $.getJSON("http://localhost:3000/resultado/VerPartidos",
         function (data) {
             let student = '';
 
@@ -26,7 +26,8 @@ $(document).ready(function () {
                 //CONSTRUCTION OF ROWS HAVING
                 // DATA FROM JSON OBJECT
                 student += '<tr>';
-                student += '<td value="'+id+'" id="Local">' + value.NombreLocal + '</td></a>';
+
+                student += '<td value="'+value.ID_Torneo+'" id="Local" name="Torneo">' + value.NombreLocal + '</td></a>';
 
                 student += '<td id="Resultado">' + Local + '</td></a>';
                 student += '<td id="Resultado">' + Visitante + '</td></a>';
@@ -35,7 +36,6 @@ $(document).ready(function () {
 
                 
                 student += '</tr>';
-                id+=1;
             });
 
             //INSERTING ROWS INTO TABLE
