@@ -69,7 +69,6 @@ router.post('/update',(req,res)=>{
     Fecha: req.body.fecha,//fecha del torneo
     Premio: req.body.premio,//premio del torneo
   }
-  console.log(NewTorneo);
   connection.query('UPDATE torneo SET NombreTorneo = ?, ID_Juego = ?, Cantidad = ?, Fecha = ?, Premio = ? WHERE ID_Torneo = ?',[NewTorneo.NombreTorneo, NewTorneo.ID_Juego, NewTorneo.Cantidad, NewTorneo.Fecha, NewTorneo.Premio, NewTorneo.ID_Torneo
     
   ],function (err,solution){

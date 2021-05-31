@@ -58,8 +58,7 @@ module.exports = {ID, rango}
            var resultado = await bcrypt.compare(pass, result[0].Contraseña);    //Revisa la contraseña con la de la BD 
            rango=result[0].Rango;
            ID=result[0].ID_Usuario;
-           console.log(ID);
-           console.log(resultado);
+           
           if (resultado==true) {
               if (rango==1) {
                   //Si el usuario es admin se le redirige a la pagina de admin
