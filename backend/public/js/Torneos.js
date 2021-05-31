@@ -22,7 +22,7 @@ $(document).ready(function () {
                 
                 //CONSTRUCTION OF ROWS HAVING
                 // DATA FROM JSON OBJECT
-                student += '<tr>';
+                student += '<tr><form action="/resultados/torneo" method="POST" name="Partidos">';
                 student += '<td><a href="VerTorneo.html" value="'+id+'">' + value.NombreTorneo + '</td></a>';
 
                 student += '<td><a href="VerTorneo.html">' + Fecha + '</td></a>';
@@ -30,7 +30,7 @@ $(document).ready(function () {
                 student += '<td><a href="VerTorneo.html">' + value.Premio + '</td></a>';
 
                 student += '<td><a href="VerTorneo.html">' +value.NombreEquipo + '</td></a>';
-                student += '</tr>';
+                student += '</form></tr>';
                 id += 1;
             });
 
