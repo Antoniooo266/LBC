@@ -51,13 +51,13 @@ module.exports = {ID, rango}
     connection.query('SELECT ID_Usuario ,Contraseña ,Rango FROM usuario WHERE Nickname = ?', [user], async (error, result) => {
         //Se realiza la consulta para saber si el usuario existe
         if (result.length<0 || result=='') {
-
+        //si alguno de los campos es incorrecto se le devuelve de nuevo a la pagina de loging
             res.redirect('../public/Login.html');
         } else {
-           console.log("holi:"+result)
+          
            var resultado = await bcrypt.compare(pass, result[0].Contraseña);    //Revisa la contraseña con la de la BD 
-           rango=result[0].Rango;
-           ID=result[0].ID_Usuario;
+           rango=result[0].Rango; //se guarda el rango del usuario para moverse por la pagina
+           ID=result[0].ID_Usuario; //se guarda el id del usuario para poder saber quien es
            
           if (resultado==true) {
               if (rango==1) {
@@ -109,22 +109,31 @@ module.exports = {ID, rango}
     //----PRIVILEGIOS USUARIO----
     
     router.post("/updatepriv", (req, res) => {
+        //se crea un objeto donde se guarda el rango del usuario y el nombre del usuario
         const RangoObj = {
           Rango: req.body.Rango,
           Nickname: req.body.Name
         };
-        console.log(RangoObj);
+        connection.query("Select * FROM usuario Where Nickname = ?",[RangoObj.Nickname],(err,result)=>{
+            if(err)throw err;
+            if(result.length<0 || result==''){
+                res.redirect('/public/Jugadores.html')
+            }else{
+        
         connection.query("UPDATE usuario SET Rango = ? WHERE Nickname = ?", [RangoObj.Rango, RangoObj.Nickname], (error) => {
             if (error) {
               throw error;
             }else{
                 if(RangoObj.Nickname == ''){
+                    //si el nombre del usuario esta vacio se le redirige a la misma pagina web
                     res.redirect("/public/Jugadores.html")
                 }else{
-                    res.redirect("/public/Mensaje.html");
+                    res.redirect("/public/Mensaje.html");//si todo ha salido correctamente se le lleva a mensaje.html
                 }
             }
           });
+        }
+        });
     });
 
     //----END PRIVILEGIOS USUARIO----
