@@ -1,7 +1,8 @@
 const connection = require("./config");
 var express = require("express");
+const { response } = require("express");
 var router = express.Router();
-
+var id_torneo=0;
 
 router.get('/get', (req, res)=>{
   const sql = "SELECT * FROM view_partido_torneo";
@@ -117,5 +118,21 @@ router.post("/addresult", async (req, res) => {
       }
     );
   }
+
+router.get('/VerPartidos', (req,res)=>{
+
+console.log(id_torneo)
+connection.query('SELECT * FROM view_partido_torneo WHERE ID_Torneo = ?',[id_torneo],(err,results)=>{
+  if(err){throw err}
+
+  if (results.length > 0) {
+    res.json(results);}
+})
+
+})
+router.post('/pacopartidos',(req,res)=>{
+  id_torneo=req.body.Torneo;
+  res.redirect('/public/VerTorneo.html')
+})
 
   module.exports = router;

@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     // FETCHING DATA FROM JSON FILE
-    $.getJSON("http://localhost:3000/resultado/get",
+    $.getJSON("http://localhost:3000/resultado/VerPartidos",
         function (data) {
             let student = '';
 
@@ -36,7 +36,6 @@ $(document).ready(function () {
 
                 
                 student += '</tr>';
-                id+=1;
             });
 
             //INSERTING ROWS INTO TABLE
