@@ -39,6 +39,6 @@ $(document).ready(function () {
             });
 
             //INSERTING ROWS INTO TABLE
-            $('#table').append(student);
+            $('#table2').append(student);
         });
 });
