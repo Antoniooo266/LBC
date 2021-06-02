@@ -1,0 +1,65 @@
+#Menu {
+
+    font: 1.2em Tahoma, Sans-serif;
+    text-align: center;
+    margin-right: 6em;
+    float: right;
+    left: 0;
+    right: 0;
+    top: 0;
+
+
+
+}
+
+header{
+  background: linear-gradient(
+            rgba(0, 0, 0, 0.664),
+            rgba(0, 0, 0, 0.5)
+    );
+    height: 12em;
+    left: 0;
+    right: 0;
+    top: 0;
+    border: white 1px solid;
+}
+
+h1{
+  color: white;
+}
+
+
+nav ul {
+    display: inline-block;
+    list-style: none;
+}
+
+nav li {
+    position: relative;
+    float: left;
+    list-style-type: none;
+
+}
+
+nav li a {
+    display: block;
+    padding: 1em 3em;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+nav li:hover {
+
+    opacity: 0.8;
+    color: white;
+}
+
+#Perfil{
+    width: 2em;
+    padding-bottom: 0.2em;
+}
+nav li ul{
+    display:none;
+}
+
+nav li:hover ul{display:contents;}

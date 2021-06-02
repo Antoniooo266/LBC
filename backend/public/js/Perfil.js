@@ -3,7 +3,7 @@ $(document).ready(function () {
     // FETCHING DATA FROM JSON FILE
     $.getJSON("http://localhost:3000/user/getid",
         function (data) {
-            let player = '';
+            let Perfil = '';
 
 
             // ITERATING THROUGH OBJECTS
@@ -29,27 +29,27 @@ $(document).ready(function () {
               
                 //CONSTRUCTION OF ROWS HAVING
                 // DATA FROM JSON OBJECT
-                player += '<tr>';
-                player += '<td id="Fila1" style="margin-bottom:2em">' + value.Nickname + '</td>';
+                Perfil += '<tr>';
+                Perfil += '<td id="Fila1" style="margin-bottom:2em">' + value.Nickname + '</td>';
 
-                player += '<td id="Fila2"><img src="Images/Team.png" id="Lose" >' + value.NombreEquipo + '</td>';
+                Perfil += '<td id="Fila2"><img src="Images/Team.png" id="Lose" >' + value.NombreEquipo + '</td>';
 
-                player += '<td id="Fila3"><img src="Images/Correo.png" id="Lose" >' +value.Correo + '</td>';
+                Perfil += '<td id="Fila3"><img src="Images/Correo.png" id="Lose" >' +value.Correo + '</td>';
 
-                player += '</tr>';
+                Perfil += '</tr>';
 
-                player += '<tr>';
+                Perfil += '<tr>';
 
-                player += '<td id="Fila1"><img src="Images/Rango.png" id="Rango" >' + value.NombreRango + '</td>';
+                Perfil += '<td id="Fila1"><img src="Images/Rango.png" id="Rango" >' + value.NombreRango + '</td>';
 
-                player += '<div><td id="Fila2"><img src="Images/corona.png" id="Win" > ' + value.Victorias +'<img src="Images/Perdedor.png" id="Lose" >' +value.Derrotas + '<img src="Images/Media.png" id="Lose" >   ' +value.Media +'</td></div>';
+                Perfil += '<div><td id="Fila2"><img src="Images/corona.png" id="Win" > ' + value.Victorias +'<img src="Images/Perdedor.png" id="Lose" >' +value.Derrotas + '<img src="Images/Media.png" id="Lose" >   ' +value.Media +'</td></div>';
 
-                player += '<td id="Fila3">' + value.País + '</td>';
-                player += '</tr>';
+                Perfil += '<td id="Fila3">' + value.País + '</td>';
+                Perfil += '</tr>';
             });
             
             //INSERTING ROWS INTO TABLE
-            $('#table').append(player);
+            $('#table').append(Perfil);
         });
 });
 

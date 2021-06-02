@@ -5,51 +5,7 @@ body{
     ),url(../Images/Fondo_Admin.jpg) no-repeat center center fixed;
     background-size: cover;
 }
-#Titulo {
-    float: left;
-    padding-top: 1em;
-    color: white;
-}
 
-#Logo {
-    width: 10em;
-    float: left;
-
-}
-#Menu {
-    display: block;
-    font: 1.2em Tahoma, Sans-serif;
-    text-align: center;
-    margin-right: 5em;
-    float: right;
-    
-
-}
-
-nav ul {
-    display: inline-block;
-    list-style: none;
-}
-
-nav li {
-    position: relative;
-    float: left;
-    list-style-type: none;
-
-}
-
-nav li a {
-    display: block;
-    padding: 1em 3em;
-    color: white;
-    text-decoration: none;
-}
-
-nav li:hover {
-
-    opacity: 0.8;
-    color: white;
-}
 
 
 table {

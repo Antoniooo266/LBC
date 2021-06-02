@@ -3,7 +3,7 @@ $(document).ready(function () {
     // FETCHING DATA FROM JSON FILE
     $.getJSON("http://localhost:3000/traspasos/get",
         function (data) {
-            let student = '';
+            let Traspaso = '';
             
             // ITERATING THROUGH OBJECTS
             $.each(data, function (key, value) {
@@ -11,17 +11,17 @@ $(document).ready(function () {
 
                 //CONSTRUCTION OF ROWS HAVING
                 // DATA FROM JSON OBJECT
-                student += '<tr>';
-                student += '<td>' + value.Nickname + '</td>';
+                Traspaso += '<tr>';
+                Traspaso += '<td>' + value.Nickname + '</td>';
 
-                student += '<td>' + value.NombreEquipo + '</td>';
+                Traspaso += '<td>' + value.NombreEquipo + '</td>';
 
-                student += '<td>' +value.NombreRango + '</td>';
+                Traspaso += '<td>' +value.NombreRango + '</td>';
 
-                student += '</tr>';
+                Traspaso += '</tr>';
             });
 
             //INSERTING ROWS INTO TABLE
-            $('#table').append(student);
+            $('#table').append(Traspaso);
         });
     });
