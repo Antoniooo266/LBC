@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "mocha test/test.js --timeout 15000",
+    "Inicio": "mocha test/inicio.js --timeout 15000",
     "dev": "nodemon app.js"
   },
   "keywords": [],
