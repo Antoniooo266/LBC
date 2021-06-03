@@ -16,13 +16,15 @@ router.post("/add", (req, res) => {
     Fecha: req.body.fecha,  //Fecha del torneo
     Premio: req.body.premio,  //Premio del torneo
   };
+ 
   connection.query('INSERT INTO torneo SET ?', torneoObj, (error) => {  //Se insertan los datos para crear el torneo
     if (error) {
       throw error;
     } else {
       res.redirect('/public/Mensaje.html')
     }
-  });
+     });
+  
 });
 
 //----END ADD TORNEO----
