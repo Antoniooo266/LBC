@@ -19,6 +19,10 @@ body{
     background-size: cover;
     opacity: 1;
 }
+#Video{
+    width:560;
+    height: 315;
+}
 
 
 
