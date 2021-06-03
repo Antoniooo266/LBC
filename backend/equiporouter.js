@@ -46,10 +46,17 @@ router.post('/update',(req,res)=>{
     ID_Equipo: req.body.id,
     NombreEquipo: req.body.equipo,
   }
+  connection.query('SELECT * FROM equipo WHERE ID_Equipo = ?',[NewEquipo.ID_Equipo],(erro,solu)=>{
+    if(erro){ throw erro;}
+    if(solu==''||solu.length<0){
+      res.redirect('/public/MensajeError.html')
+    }else{
   connection.query('UPDATE equipo SET NombreEquipo = ? WHERE ID_Equipo = ?',[NewEquipo.NombreEquipo, NewEquipo.ID_Equipo],function (err,solution){
-    if(err) throw err;
+    if(err){ throw err;}
     res.redirect('/public/Mensaje.html');
   })
+    }
+})
 });
 
 //----END UPDATE EQUIPO----
