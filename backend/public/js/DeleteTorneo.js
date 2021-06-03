@@ -25,7 +25,7 @@ $(document).ready(function () {
                 Torneo += '<td><a href="ModificarTorneo.html"><button type="submit" style="background-color: #515468;" name="Editar" value="'+value.ID_Torneo+'"><img src="/public/Images/Edit.png" id="Trash2"></button></a>'
                 Torneo += '<td><form action="/torneo/delete" method="post"><button type="submit" style="background-color: #515468;" name="Eliminar" value="'+value.ID_Torneo+'"><img src="/public/Images/Trash.png" id="Trash"></button></form></td>';
 
-                student += '</tr>';
+                Torneo += '</tr>';
                 id+=1;
 
                 
