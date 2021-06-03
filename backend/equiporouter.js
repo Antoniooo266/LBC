@@ -28,13 +28,20 @@ router.post('/add', (req, res) =>{
       Victorias: 0,
       Derrotas: 0,
   };
+
+  connection.query('SELECT * FROM equipo WHERE NombreEquipo = ?',[EquipoObj.NombreEquipo],(err,solucion)=>{
+    if(err)throw err;
+    if(solucion.length>0){
+      res.redirect('/public/MensajeError.html')
+    }else{
   connection.query('INSERT INTO equipo SET ?', EquipoObj, (error) =>{
     if (error){
         throw error;
     }else{
         res.redirect('/public/Mensaje.html')
     }
-  })
+  })}
+})
 });
 
 //----END ADD EQUIPO----
