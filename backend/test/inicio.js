@@ -29,3 +29,14 @@ describe('Inicio Usuario',()=>{
         done();
     })
 })
+describe('cambiar el rango del usuario',()=>{
+    it('update rank',function(done){
+        chai.request(url)
+        .post('../user/updatepriv')
+        .send({
+            Name:'abeja21',
+            Range:'1'
+        })
+        done();
+    })
+})
