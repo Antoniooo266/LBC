@@ -5,8 +5,8 @@ const expect = require('chai').expect;
 chai.use(chaiHttp);
 const url= 'http://localhost:3000';
 
-describe('registrar a un equipo',()=>{
-    it('registrando a pepeteam',function(done){
+describe('Registrar a un equipo',()=>{
+    it('Registrando a pepeteam',function(done){
         chai.request(url)
         .post('/equipo/add')
         .send({
@@ -19,8 +19,8 @@ describe('registrar a un equipo',()=>{
         done(); 
     })
 })
-describe('modificar a un equipo',()=>{
-    it('modificando a pepeteam',function(done){
+describe('Modificar a un equipo',()=>{
+    it('Modificando a pepe',function(done){
         chai.request(url)
         .post('/equipo/update')
         .send({
