@@ -20,7 +20,7 @@ describe('registrar a un equipo',()=>{
     })
 })
 describe('modificar a un equipo',()=>{
-    it('modificando a pepe',function(done){
+    it('modificando a pepeteam',function(done){
         chai.request(url)
         .post('/equipo/update')
         .send({
