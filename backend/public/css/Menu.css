@@ -7,21 +7,18 @@
     left: 0;
     right: 0;
     top: 0;
-
-
-
 }
 
 header{
   background: linear-gradient(
-            rgba(0, 0, 0, 0.664),
-            rgba(0, 0, 0, 0.5)
+            rgba(0, 0, 0, 0.5),
+            rgba(51, 38, 112, 0.5)
     );
     height: 12em;
     left: 0;
     right: 0;
     top: 0;
-    border: white 1px solid;
+    opacity: 14;
 }
 
 h1{
