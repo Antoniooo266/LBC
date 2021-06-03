@@ -22,7 +22,11 @@ module.exports = {ID, rango}
         País: req.body.paistext,    //Almacena el pais del usuario
         Rango: 2    //Se le introduce el rango base en este caso usuario
     }
-    
+    connection.query('SELECT * FROM usuario WHERE Nickname = ?',[userObj.Nickname],(err,sol)=>{
+        if (err)throw err;
+        if(sol.length>0){
+            res.redirect('/public/MensajeErrorRegistro.html')
+        }else{
     connection.query('INSERT INTO usuario SET ?', userObj, error=>{ //Introduce los datos a la BD
         if(error){
             throw error;
@@ -35,7 +39,8 @@ module.exports = {ID, rango}
             ID=res[0].ID_Usuario;
             
         })
-    })
+    })}
+})
     });
 
     //---- END ADD USER----
