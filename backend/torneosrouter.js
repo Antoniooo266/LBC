@@ -64,7 +64,7 @@ router.post('/update',(req,res)=>{
   connection.query('SELECT * FROM torneo WHERE ID_Torneo= ?',[req.body.id],(errur,sol)=>{
     if (errur) throw errur;
     if(sol.length<0 || sol==''){
-      res.redirect('/public/ModificarTorneo.html')
+      res.redirect('/public/MensajeError.html')
     }
     else{
   const NewTorneo = {
