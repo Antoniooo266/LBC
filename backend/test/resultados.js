@@ -5,16 +5,19 @@ const expect = require('chai').expect;
 chai.use(chaiHttp);
 const url= 'http://localhost:3000';
 
-describe('Gestion de Resulatdos de los Partidos',()=>{
+describe('Gestion de Resultados de los Partidos',()=>{
     it('Asignar Resultados', function(done){
         chai.request(url)
-        .post('/user/add')
+        .post('/resultado/addresult')
         .send({
-            Nickname:'pakito',
-            Contraseña:'pakito',
-            Fecha_Nac: '6969-06-31',
-            Correo: 'pakitooo@gmail.com',
-            País: 'España'
+            ID_Visitante:'1',
+            ID_Local:'2',
+            ID_Torneo: '1',
+            ID_Ronda: '1',
+            Resultado_Local: '5',
+            Resultado_Visitante: '10',
+            Ganador: '2',
+            NombreTorneo: 'Torneo Ejemplo'
         })
         done();
     })
