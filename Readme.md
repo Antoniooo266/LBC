@@ -1,5 +1,5 @@
 ## Título del Proyecto
-LBC es una aplicacion para la gestion y creacion de torneos, hecha por gamers para gamers
+LBC es una aplicacion para la gestion y creacion de torneos de videojuegos, hecha por gamers para gamers
 
 ## Comenzando 🚀
 Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas.
