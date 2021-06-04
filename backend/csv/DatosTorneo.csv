@@ -1,5 +1,5 @@
 "ID_Torneo","NombreTorneo","ID_Juego","Cantidad","Fecha","Premio","Ganador"
-1,"World Cup",1,12,"2020-12-11T23:00:00.000Z","Un aplauso",
+1,"World Cup",1,12,"2020-12-11T23:00:00.000Z","Un aplauso",1
 2,"Dream Hack",2,16,"2021-02-13T23:00:00.000Z","2€",
 3,"LATAM CUP",3,4,"2019-12-30T23:00:00.000Z","Nada",
 4,"Murcia Cup",2,12,"2021-06-06T22:00:00.000Z","Una hectarea de tierras",

@@ -15,12 +15,6 @@ VALUES (2, 'WARZONE', 'Juego de battle royale ', 2000);
 INSERT INTO juego (ID_Juego, NombreJuego, Descripcion, Tipo)
 VALUES (3, 'CSGO', 'Juego de pistolitas PIU PIU', 3000);
 
-INSERT INTO equipo (ID_Equipo, NombreEquipo, Fecha, Victorias, Derrotas)
-VALUES (1, 'Elver Team', '2020-2-15', 5, 8);
-
-INSERT INTO equipo (ID_Equipo, NombreEquipo, Fecha, Victorias, Derrotas)
-VALUES (2, 'Keko Team', '2020-2-15', 7, 1);
-
 INSERT INTO rango (ID_Rango, NombreRango, Descripcion)
 VALUES (1, 'Administrador', 'Usuario maestro que tiene todos los privilegios del sistema');
 

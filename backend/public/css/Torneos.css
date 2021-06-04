@@ -50,7 +50,7 @@ nav li:hover {
 
 
  table {
-     margin: 10em 15em;
+     margin: 5em 22em;
      font-size: 20px;
 
      border-collapse: collapse;
@@ -64,7 +64,7 @@ nav li:hover {
  }
 
  #table2{
-    margin: 10em 24em;
+    margin: 10em 22em;
     font-size: 20px;
 
     border-collapse: collapse;
@@ -81,7 +81,7 @@ nav li:hover {
 
 td {
     border: none;
-    padding: 2em;
+    padding: 1em;
 }
 a{
     text-decoration: none;
@@ -94,9 +94,9 @@ th, td {
     border: 1px solid black;
     border: none;
     text-align: center;
-    padding: 1.6em;
-    padding-left: 2em;
-    padding-right: 2em;
+    padding: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
 td {

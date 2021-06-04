@@ -51,6 +51,8 @@ tr:hover{
 }
 
 
+
+
 #wrapper{
     margin: 0em 10em 4em 70em;
     text-align: center;
@@ -58,6 +60,11 @@ tr:hover{
     border-radius: 10px;
     float: right;
     position: fixed;
+}
+
+#Logo{
+    width: 10em;
+    
 }
 
 a{
@@ -70,7 +77,8 @@ a{
 .Enviar{
     background-color: #324ea2;
     padding: 1em;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
+    color: white;
 }
 
 .form-control{
@@ -94,14 +102,6 @@ a{
 
 }
 
-.Enviar{
-    background-color: #324ea2;
-    padding: 1em;
-    margin: auto;
-    color: white;
-
-
-}
 .fa-2x {
     font-size: 2em;
 }

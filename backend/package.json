@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "mocha test/* --timeout 15000",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "export": "node ./ExportCSV.js",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +24,7 @@
     "fast-csv": "^4.3.6",
     "fs": "*",
     "jsdoc": "^3.6.7",
+    "json2csv": "^5.0.6",
     "jsonwebtoken": "^8.5.1",
     "lsof": "^0.1.0",
     "mocha": "^8.4.0",

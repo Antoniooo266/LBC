@@ -73,8 +73,8 @@ a{
     border-right:1px solid #ffffff;
     position:absolute;
     top:0;
-    bottom:0;
-    height:100%;
+    clear: both;
+    height:160%;
     left:0;
     width:60px;
     overflow:hidden;
