@@ -63,6 +63,7 @@ connection.query('DELETE FROM torneo WHERE ID_Torneo = ?',[req.body.Eliminar],fu
 
 //Recoge los datos introducidos en los campos de texto de la pagina Addtorneo.html y modifica los datos del torneo previamente seleccionado (falta testeo)
 router.post('/update',(req,res)=>{
+  //se comprueba si el torneo existe, si no existe se le redirige a un mensaje de operacion denegada
   connection.query('SELECT * FROM torneo WHERE ID_Torneo= ?',[req.body.id],(errur,sol)=>{
     if (errur) throw errur;
     if(sol.length<0 || sol==''){

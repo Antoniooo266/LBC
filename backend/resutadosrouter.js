@@ -4,7 +4,7 @@ const { response } = require("express");
 var router = express.Router();
 
 router.get('/get', (req, res)=>{
-  //const sql = "SELECT * FROM view_partido_torneo WHERE ID_Torneo = ?",[req.params.id];
+  // se obtienen todos los datos de la vista view_partido_torneo
     connection.query("SELECT * FROM view_partido_torneo WHERE ID_Torneo = ?",(error, results) => {
       if (error) throw error;
       if (results.length > 0) {
@@ -76,7 +76,7 @@ router.post("/addresult", async (req, res) => {
           NombreTorneo: req.body.NombreTorneo
         }
       }
-      console.log(resultObj);
+
       connection.query("INSERT INTO partido SET ? ", resultObj, (error) => {
         if (error) {
           throw error;
@@ -119,8 +119,7 @@ router.post("/addresult", async (req, res) => {
   }
 
 router.get('/VerPartidos', (req,res)=>{
-
-console.log(id_torneo)
+//se muestran todos los partidos de la vista 'view_partido_torneo'
 connection.query('SELECT * FROM view_partido_torneo WHERE ID_Torneo = ?',[id_torneo],(err,results)=>{
   if(err){throw err}
 
