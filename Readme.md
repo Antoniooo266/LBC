@@ -1,15 +1,10 @@
 ## Título del Proyecto
 LBC es una aplicacion para la gestion y creacion de torneos de videojuegos, hecha por gamers para gamers
 
-## Comenzando 🚀
-Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas.
-
-Mira Deployment para conocer como desplegar el proyecto.
-
 ## Pre-requisitos 📋
 Sera un sitio web por lo que necesitaras el link de la pagina
 
-Instalación 🔧
+## Instalación 🔧
 Necesitaras node.js y express
 
 ## Ejecutando las pruebas ⚙️
