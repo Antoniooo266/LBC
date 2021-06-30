@@ -8,6 +8,10 @@ $(document).ready(function () {
             // ITERATING THROUGH OBJECTS
             $.each(data, function (key, value) {
                 
+                if(value.NombreEquipo == null){
+                    value.NombreEquipo = "Sin Equipo"
+                }
+                
 
                 //CONSTRUCTION OF ROWS HAVING
                 // DATA FROM JSON OBJECT
